@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Menu, Mail, User, Instagram, Facebook } from 'lucide-react'
 import ContactDialog from "./contact-dialog"
 import { cn } from "@/lib/utils"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 // Navegação simplificada mantendo apenas os emojis essenciais de forma sutil
 const nav = [
@@ -21,6 +21,8 @@ const nav = [
 export default function SiteHeader() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
+  const [headerHeight, setHeaderHeight] = useState(72)
+  const headerRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,12 +32,26 @@ export default function SiteHeader() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const updateHeaderHeight = () => {
+      if (headerRef.current) {
+        setHeaderHeight(headerRef.current.offsetHeight)
+      }
+    }
+    
+    updateHeaderHeight()
+    window.addEventListener('resize', updateHeaderHeight)
+    return () => window.removeEventListener('resize', updateHeaderHeight)
+  }, [])
+
   return (
     <>
-      <header className={cn(
-        "sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300",
-        isScrolled && "shadow-sm"
-      )}>
+      <header 
+        ref={headerRef}
+        className={cn(
+          "sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300",
+          isScrolled && "shadow-sm"
+        )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
           {/* Logo com hover sutil */}
@@ -130,6 +146,14 @@ export default function SiteHeader() {
             >
               <Instagram className="w-5 h-5" />
             </Link>
+            <Link 
+              href="https://facebook.com" 
+              target="_blank"
+              className="p-2 text-slate-500 hover:text-blue-600 transition-colors duration-200"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-5 h-5" />
+            </Link>
             <Sheet>
               <SheetTrigger asChild>
                 <Button 
@@ -194,26 +218,6 @@ export default function SiteHeader() {
                       </Button>
                     </ContactDialog>
                   </div>
-                  
-                  {/* Redes sociais mobile */}
-                  <div className="flex justify-center space-x-4 pt-6 border-t border-slate-200 mt-6">
-                    <Link 
-                      href="https://instagram.com" 
-                      target="_blank"
-                      className="p-3 text-slate-500 hover:text-sky-500 transition-colors duration-200"
-                      aria-label="Instagram"
-                    >
-                      <Instagram className="w-5 h-5" />
-                    </Link>
-                    <Link 
-                      href="https://facebook.com" 
-                      target="_blank"
-                      className="p-3 text-slate-500 hover:text-blue-600 transition-colors duration-200"
-                      aria-label="Facebook"
-                    >
-                      <Facebook className="w-5 h-5" />
-                    </Link>
-                  </div>
                 </div>
               </SheetContent>
             </Sheet>
@@ -223,7 +227,10 @@ export default function SiteHeader() {
     </header>
     
     {/* Botão ACESSE A LOJA - Visível em mobile e tablet, abaixo da header */}
-    <div className="lg:hidden sticky top-[65px] z-40">
+    <div 
+      className="lg:hidden sticky z-40"
+      style={{ top: `${headerHeight}px` }}
+    >
       <Link href="/shop">
         <Button
           className="w-full bg-gradient-to-r from-sky-400 to-sky-500 hover:from-sky-500 hover:to-sky-600 text-white font-bold py-3 text-sm uppercase tracking-wide rounded-none border-0 transition-all duration-300"
