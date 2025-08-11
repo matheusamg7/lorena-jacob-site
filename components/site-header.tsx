@@ -31,12 +31,13 @@ export default function SiteHeader() {
   }, [])
 
   return (
-    <header className={cn(
-      "sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300",
-      isScrolled && "shadow-sm"
-    )}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <div className="flex items-center justify-between">
+    <>
+      <header className={cn(
+        "sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300",
+        isScrolled && "shadow-sm"
+      )}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between">
           {/* Logo com hover sutil */}
           <Link href="/" className="flex items-center group">
             <Image
@@ -71,7 +72,7 @@ export default function SiteHeader() {
           </nav>
 
           {/* Ações do usuário */}
-          <div className="hidden md:flex items-center space-x-3">
+          <div className="hidden lg:flex items-center space-x-3">
             {/* Redes sociais minimalistas */}
             <div className="flex items-center space-x-2">
               <Link 
@@ -119,8 +120,8 @@ export default function SiteHeader() {
             </ContactDialog>
           </div>
 
-          {/* Menu mobile */}
-          <div className="md:hidden flex items-center space-x-2">
+          {/* Menu mobile e tablet */}
+          <div className="lg:hidden flex items-center space-x-2">
             <Link 
               href="https://instagram.com" 
               target="_blank"
@@ -185,9 +186,9 @@ export default function SiteHeader() {
                   </Link>
 
                   {/* Botão de contato mobile */}
-                  <div className="pt-2">
+                  <div className="pt-2 px-4">
                     <ContactDialog>
-                      <Button className="w-full bg-sky-500 hover:bg-sky-600 text-white">
+                      <Button className="w-full bg-sky-500 hover:bg-sky-600 text-white rounded-lg">
                         <Mail className="w-4 h-4 mr-2" />
                         Fale Comigo
                       </Button>
@@ -220,5 +221,17 @@ export default function SiteHeader() {
         </div>
       </div>
     </header>
+    
+    {/* Botão ACESSE A LOJA - Visível em mobile e tablet, abaixo da header */}
+    <div className="lg:hidden sticky top-[65px] z-40">
+      <Link href="/shop">
+        <Button
+          className="w-full bg-gradient-to-r from-sky-400 to-sky-500 hover:from-sky-500 hover:to-sky-600 text-white font-bold py-3 text-sm uppercase tracking-wide rounded-none border-0 transition-all duration-300"
+        >
+          ACESSE A LOJA
+        </Button>
+      </Link>
+    </div>
+    </>
   )
 }
