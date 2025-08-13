@@ -6,6 +6,7 @@ import ContactDialog from "@/components/contact-dialog"
 import EbookCard from "@/components/ebook-card"
 import PostCard from "@/components/post-card"
 import ScrollIndicator from "@/components/scroll-indicator"
+import BannerCarousel from "@/components/banner-carousel"
 import { ebooks, posts } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 
@@ -149,6 +150,9 @@ export default function Page() {
             </div>
           </div>
         </section>
+
+        {/* Banner Carousel */}
+        <BannerCarousel />
 
         {/* Featured eBooks */}
         <section className="container mx-auto px-4 py-12">
