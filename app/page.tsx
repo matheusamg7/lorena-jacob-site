@@ -36,7 +36,7 @@ export default function Page() {
           {/* Conteúdo */}
           <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-72px)] flex items-center">
             <div className="max-w-3xl py-12 pb-32 lg:pl-12">
-              <h1 className="text-[2rem] md:text-[2.75rem] lg:text-[3.5rem] font-bold text-white leading-[1.1]">
+              <h1 className="text-[2rem] md:text-[2.75rem] lg:text-[3.5rem] font-bold text-white leading-[1.1] font-[family:var(--font-comfortaa)]">
                 Suporte Personalizado<br />
                 para o <span className="text-[#FFFCB3]">Desenvolvimento Infantil</span>
               </h1>
@@ -155,14 +155,14 @@ export default function Page() {
         <BannerCarousel />
 
         {/* Sobre Mim */}
-        <section className="py-20 bg-white">
+        <section className="py-20 pb-24 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="relative">
                 {/* Card marrom */}
                 <div className="bg-[#8B7659] rounded-[2.5rem] min-h-[400px] p-12 pr-12 lg:pr-[200px] lg:mr-[200px] flex items-center">
                   <div className="text-white max-w-2xl">
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#FFFCB2] mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#FFFCB2] mb-6 font-[family:var(--font-comfortaa)]">
                       SOBRE MIM
                     </h2>
                     <div className="space-y-3 text-base leading-relaxed">
@@ -209,6 +209,116 @@ export default function Page() {
           </div>
         </section>
 
+        {/* Blog Preview com Cards Customizados */}
+        <section className="relative pt-24 pb-16 mt-8 -mb-8 z-10">
+          <div className="absolute inset-0 bg-gray-50 rounded-[3rem] shadow-[0_-10px_30px_rgba(0,0,0,0.1),0_10px_30px_rgba(0,0,0,0.1)]"></div>
+          <div className="relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              {/* Título */}
+              <div className="text-center mb-12">
+                <h2 className="text-4xl md:text-5xl font-bold text-[#8B7659] leading-tight font-[family:var(--font-comfortaa)]">
+                  Esses e <span className="text-[#8B7659]">outros temas</span> você<br />
+                  <span className="text-[#8B7659] italic text-5xl md:text-6xl">encontra no blog</span>
+                </h2>
+              </div>
+
+              {/* Cards de Artigos com navegação */}
+              <div className="relative">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
+                  {/* Card 1 */}
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col h-full">
+                    <div className="relative h-48">
+                      <Image
+                        src="/assets/blog-artigos/autismo-na-vida-adulta-1749044146435.jpg"
+                        alt="Autismo na Vida Adulta"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h3 className="text-xl font-bold text-[#6FB1CE] mb-3">
+                        Autismo na Vida Adulta
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-4 flex-grow line-clamp-2">
+                        Nesse artigo, vamos falar sobre como o autismo pode aparecer na vida adulta, os problemas encarados e a importância de acolher e estar bem informado durante esse processo.
+                      </p>
+                      <Link href="/blog/autismo-na-vida-adulta">
+                        <Button 
+                          className="w-full bg-[#1e5a79] hover:bg-[#27769B] text-white font-bold py-3 rounded-lg cursor-pointer mb-4"
+                        >
+                          SAIBA MAIS
+                        </Button>
+                      </Link>
+                      <div className="flex items-center gap-4 text-xs text-gray-500">
+                        <span>176 visualizações</span>
+                        <span>•</span>
+                        <span>0 comentários</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card 2 */}
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col h-full">
+                    <div className="relative h-48">
+                      <Image
+                        src="/assets/blog-artigos/como-identificar-o-autismo-1746639761424.jpg"
+                        alt="Como Identificar o Autismo"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h3 className="text-xl font-bold text-[#6FB1CE] mb-3">
+                        Como Identificar o Autismo
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-4 flex-grow line-clamp-2">
+                        Descobertas e aprendizados sobre os sinais e características do autismo, ajudando pais e profissionais a identificarem precocemente.
+                      </p>
+                      <Link href="/blog/como-identificar-o-autismo">
+                        <Button 
+                          className="w-full bg-[#1e5a79] hover:bg-[#27769B] text-white font-bold py-3 rounded-lg cursor-pointer mb-4"
+                        >
+                          SAIBA MAIS
+                        </Button>
+                      </Link>
+                      <div className="flex items-center gap-4 text-xs text-gray-500">
+                        <span>542 visualizações</span>
+                        <span>•</span>
+                        <span>0 comentários</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Setas de navegação */}
+                <button className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all cursor-pointer">
+                  <svg className="w-6 h-6 text-[#8B7659]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all cursor-pointer">
+                  <svg className="w-6 h-6 text-[#8B7659]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Botão CTA */}
+              <div className="text-center">
+                <Link href="/blog">
+                  <Button 
+                    className="bg-[#8B7659] hover:bg-[#7A654A] text-white font-bold px-16 py-5 rounded-full text-xl cursor-pointer"
+                  >
+                    ACESSE O BLOG
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
+
         {/* Featured eBooks */}
         <section className="container mx-auto px-4 py-12">
           <div className="flex items-end justify-between gap-4">
@@ -227,25 +337,6 @@ export default function Page() {
           </div>
         </section>
 
-        {/* From the blog */}
-        <section className="bg-[#FFFCB3]/40">
-          <div className="container mx-auto px-4 py-12">
-            <div className="flex items-end justify-between gap-4">
-              <div>
-                <h2 className="text-2xl md:text-3xl font-bold">From the blog</h2>
-                <p className="text-muted-foreground">Gentle ideas for calm, connected days.</p>
-              </div>
-              <Button asChild variant="outline">
-                <Link href="/blog">All posts</Link>
-              </Button>
-            </div>
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {posts.slice(0, 3).map((post) => (
-                <PostCard key={post.slug} post={post} />
-              ))}
-            </div>
-          </div>
-        </section>
 
         {/* CTA */}
         <section className="container mx-auto px-4 py-16">
