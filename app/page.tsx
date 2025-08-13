@@ -210,7 +210,7 @@ export default function Page() {
         </section>
 
         {/* Blog Preview com Cards Customizados */}
-        <section className="relative pt-24 pb-16 mt-8 -mb-8 z-10">
+        <section className="relative pt-12 pb-16 mt-8 -mb-8 z-10">
           <div className="absolute inset-0 bg-gray-50 rounded-[3rem] shadow-[0_-10px_30px_rgba(0,0,0,0.1),0_10px_30px_rgba(0,0,0,0.1)]"></div>
           <div className="relative z-10">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -292,12 +292,12 @@ export default function Page() {
                 </div>
 
                 {/* Setas de navegação */}
-                <button className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all cursor-pointer">
+                <button className="absolute -left-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all cursor-pointer">
                   <svg className="w-6 h-6 text-[#8B7659]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
-                <button className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all cursor-pointer">
+                <button className="absolute -right-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all cursor-pointer">
                   <svg className="w-6 h-6 text-[#8B7659]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
