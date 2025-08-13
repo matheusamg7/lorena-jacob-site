@@ -5,6 +5,7 @@ import SiteFooter from "@/components/site-footer"
 import ContactDialog from "@/components/contact-dialog"
 import EbookCard from "@/components/ebook-card"
 import PostCard from "@/components/post-card"
+import ScrollIndicator from "@/components/scroll-indicator"
 import { ebooks, posts } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 
@@ -14,42 +15,55 @@ export default function Page() {
       <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 opacity-20 pointer-events-none">
-            <div className="h-full w-full bg-[radial-gradient(ellipse_at_top_left,_#78BEE0_0%,_transparent_60%)]" />
+        <section className="relative overflow-hidden min-h-[calc(100vh-72px)]">
+          {/* Imagem de fundo */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/hero-banner.jpeg"
+              alt="Lorena Jacob - Terapeuta Infantil"
+              fill
+              className="object-cover object-center scale-110 animate-slow-zoom"
+              priority
+            />
+            {/* Gradiente de transição na parte inferior */}
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white via-white/70 to-transparent" />
           </div>
-          <div className="container mx-auto px-4 py-12 md:py-20 grid gap-10 lg:grid-cols-2 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="inline-block px-3 py-1 rounded-md bg-[#FFFCB3] text-black text-sm mb-4">
-                Lorena Jacob — Child Therapist
-              </div>
-              <h1 className="text-3xl md:text-5xl font-bold tracking-tight">
-                Nurturing young minds with care and science‑backed tools
+          
+          {/* Indicador de scroll */}
+          <ScrollIndicator />
+          
+          {/* Conteúdo */}
+          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-72px)] flex items-center">
+            <div className="max-w-3xl py-12 pb-32 lg:pl-12">
+              <h1 className="text-[2rem] md:text-[2.75rem] lg:text-[3.5rem] font-bold text-white leading-[1.1]">
+                Suporte Personalizado<br />
+                para o <span className="text-[#FFFCB3]">Desenvolvimento Infantil</span>
               </h1>
-              <p className="mt-4 text-muted-foreground text-lg">
-                Practical eBooks and gentle insights to help families build calm routines, emotional literacy, and stronger
-                connections.
+              
+              <p className="mt-6 text-[1.125rem] md:text-[1.25rem] text-white/90 max-w-2xl">
+                Terapia especializada em crianças com{" "}
+                <span className="text-[#FFFCB3] font-semibold">autismo</span>,{" "}
+                <span className="text-[#FFFCB3] font-semibold">TDAH</span>
+                {" "}e outras necessidades{" "}
+                <span className="text-[#FFFCB3] font-semibold">especiais</span>.
               </p>
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
-                <Button asChild className="bg-[#78BEE0] text-black hover:bg-[#69acd0]">
-                  <Link href="/shop">Shop eBooks</Link>
-                </Button>
-                <Button asChild variant="outline">
-                  <Link href="/blog">Read the blog</Link>
-                </Button>
+              
+              <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <ContactDialog>
-                  <Button variant="outline">Contact me</Button>
+                  <Button 
+                    className="bg-white hover:bg-gray-100 text-[#6FB1CE] font-bold px-8 py-3 h-auto text-base shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg"
+                  >
+                    Agende uma avaliação
+                  </Button>
                 </ContactDialog>
+                
+                <Link 
+                  href="/about"
+                  className="text-white font-medium text-base hover:text-[#FFFCB3] underline underline-offset-4 decoration-1 transition-colors duration-200"
+                >
+                  Conheça a Lorena Jacob
+                </Link>
               </div>
-            </div>
-            <div className="relative order-1 lg:order-2">
-              <Image
-                src="/placeholder.svg?height=600&width=800"
-                alt="Illustration of a therapist and child engaging in play-based therapy"
-                width={800}
-                height={600}
-                className="w-full rounded-xl border bg-white"
-              />
             </div>
           </div>
         </section>
