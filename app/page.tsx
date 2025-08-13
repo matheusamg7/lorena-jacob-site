@@ -319,6 +319,86 @@ export default function Page() {
           </div>
         </section>
 
+        {/* Seção Redes Sociais */}
+        <section className="relative py-20 bg-white mt-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="relative bg-[#8B7659] rounded-[3rem] overflow-hidden h-[500px] lg:h-[600px]">
+                {/* Imagem de fundo com overlay */}
+                <div className="absolute inset-0">
+                  <Image
+                    src="/assets/lorena-redes.jpg"
+                    alt="Lorena Jacob"
+                    fill
+                    className="object-cover object-center opacity-40 blur-[2px]"
+                  />
+                </div>
+                
+                {/* Conteúdo */}
+                <div className="relative z-10 flex flex-col lg:flex-row items-center justify-center p-8 lg:p-12 gap-8 h-full">
+                  {/* Texto à esquerda */}
+                  <div className="flex-1 text-white lg:pl-12">
+                    <h2 className="text-5xl lg:text-7xl font-bold leading-tight">
+                      SIGA-ME NAS
+                    </h2>
+                    <h2 className="text-5xl lg:text-7xl font-bold mb-8 text-[#FFFCB3] -mt-2">
+                      REDES SOCIAIS
+                    </h2>
+                    
+                    <div className="flex items-center gap-3 mb-8 text-2xl">
+                      {/* Instagram */}
+                      <Link href="https://instagram.com/lorenajacob.st" target="_blank" className="text-white hover:text-[#FFFCB3] transition-colors">
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          width="28" 
+                          height="28" 
+                          viewBox="0 0 24 24" 
+                          fill="currentColor"
+                        >
+                          <path d="M7.0301 0.00012207C2.22174 0.00012207 0 2.5218 0 7.0301V16.9699C0 21.7783 2.22174 24 7.0301 24H16.9699C21.7783 24 24 21.7783 24 16.9699V7.0301C24 2.22174 21.4779 0 16.9699 0L7.0301 0.00012207ZM19 4C19.5523 4 20 4.44772 20 5C20 5.55228 19.5523 6 19 6C18.4477 6 18 5.55228 18 5C18 4.44772 18.4477 4 19 4ZM12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6ZM12 8C10.9391 8 9.92172 8.42143 9.17157 9.17157C8.42143 9.92172 8 10.9391 8 12C8 13.0609 8.42143 14.0783 9.17157 14.8284C9.92172 15.5786 10.9391 16 12 16C13.0609 16 14.0783 15.5786 14.8284 14.8284C15.5786 14.0783 16 13.0609 16 12C16 10.9391 15.5786 9.92172 14.8284 9.17157C14.0783 8.42143 13.0609 8 12 8Z"/>
+                        </svg>
+                      </Link>
+                      {/* Facebook */}
+                      <Link href="https://facebook.com/lorenajacob.st" target="_blank" className="text-white hover:text-[#FFFCB3] transition-colors">
+                        <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                      </Link>
+                      <span className="font-bold">/@lorenajacob.st</span>
+                    </div>
+                    
+                    <Link href="https://instagram.com/lorenajacob.st" target="_blank">
+                      <Button className="bg-[#FFFCB3] hover:bg-[#f5f2a0] text-[#8B7659] font-bold px-10 py-6 rounded-full text-xl">
+                        SIGA O MEU PERFIL
+                      </Button>
+                    </Link>
+                    
+                    {/* Decorative elements */}
+                    <div className="absolute bottom-6 left-6">
+                      <svg className="w-24 h-24 text-white/20" viewBox="0 0 100 100">
+                        <path d="M10 50 Q 30 10, 50 50 T 90 50" stroke="currentColor" strokeWidth="2" fill="none"/>
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  {/* Mockup do Instagram à direita */}
+                  <div className="relative flex items-center">
+                    <div className="relative w-[300px] h-[600px] lg:w-[340px] lg:h-[680px]">
+                      <Image
+                        src="/assets/mockinsta.webp"
+                        alt="Instagram Lorena Jacob"
+                        fill
+                        className="object-contain"
+                        priority
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Featured eBooks */}
         <section className="container mx-auto px-4 py-12">
           <div className="flex items-end justify-between gap-4">
