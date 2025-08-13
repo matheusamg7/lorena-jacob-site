@@ -83,7 +83,7 @@ export default function Page() {
                   quality={100}
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/70 via-40% to-transparent to-70%"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
                 <div className="relative p-8 h-[400px] flex flex-col justify-between">
                   <div>
                     <h3 className="text-2xl font-bold text-[#27769B] text-center">
@@ -108,7 +108,7 @@ export default function Page() {
                   quality={100}
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/70 via-40% to-transparent to-70%"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
                 <div className="relative p-8 h-[400px] flex flex-col justify-between">
                   <div>
                     <h3 className="text-2xl font-bold text-[#27769B] text-center">
@@ -133,7 +133,7 @@ export default function Page() {
                   quality={100}
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/70 via-40% to-transparent to-70%"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
                 <div className="relative p-8 h-[400px] flex flex-col justify-between">
                   <div>
                     <h3 className="text-2xl font-bold text-[#27769B] text-center">
@@ -161,7 +161,7 @@ export default function Page() {
               {/* Título fora do card marrom */}
               <div className="text-center mb-8">
                 <h2 className="text-4xl md:text-5xl font-bold text-[#8B7659] font-[family:var(--font-comfortaa)]">
-                  SOBRE MIM
+                  Sobre Mim
                 </h2>
               </div>
               
@@ -492,7 +492,9 @@ export default function Page() {
         </section>
 
       </main>
-      <SiteFooter />
+      <div className="bg-[#FAFFE7]">
+        <SiteFooter />
+      </div>
     </div>
   )
 }
