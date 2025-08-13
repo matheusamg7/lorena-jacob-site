@@ -5,11 +5,42 @@ import { Instagram, Facebook } from 'lucide-react'
 export default function SiteFooter() {
   return (
     <footer className="bg-white border-t-2 border-[#6FB1CE] rounded-t-[2.5rem]">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Main content grid */}
         <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-6 mb-6">
-          {/* Left column - Logo, social, language */}
-          <div className="flex flex-col gap-4">
+          {/* Mobile Layout - Logo, redes e bandeira na mesma linha */}
+          <div className="lg:hidden">
+            <div className="flex items-center justify-between mb-6">
+              {/* Logo */}
+              <Link href="/">
+                <Image
+                  src="/assets/Logo.png"
+                  alt="Lorena Jacob - Terapeuta Infantil"
+                  width={150}
+                  height={50}
+                  className="h-12 w-auto"
+                />
+              </Link>
+              
+              {/* Redes sociais */}
+              <div className="flex items-center gap-3">
+                <Link href="https://instagram.com/lorenajacob.st" target="_blank" className="text-[#6FB1CE] hover:text-pink-500 transition-colors">
+                  <Instagram className="w-6 h-6" />
+                </Link>
+                <Link href="https://facebook.com/lorenajacob.st" target="_blank" className="text-[#6FB1CE] hover:text-blue-600 transition-colors">
+                  <Facebook className="w-6 h-6" />
+                </Link>
+              </div>
+              
+              {/* Bandeira */}
+              <button className="text-2xl">
+                🇧🇷
+              </button>
+            </div>
+          </div>
+          
+          {/* Desktop Layout - Left column */}
+          <div className="hidden lg:flex flex-col gap-4">
             {/* Logo */}
             <Link href="/" className="mb-2">
               <Image
@@ -39,7 +70,7 @@ export default function SiteFooter() {
           </div>
 
           {/* Right column - Links sections */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-2">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 sm:gap-6 lg:gap-2">
           {/* Institucional */}
           <div>
             <h3 className="font-bold text-[#6FB1CE] mb-2 text-base">Institucional</h3>
@@ -102,7 +133,7 @@ export default function SiteFooter() {
         <div className="border-t border-gray-200 pt-4 mt-4">
           <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
             {/* Payment methods */}
-            <div className="flex items-center gap-6 text-sm text-gray-600">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-gray-600">
               <div className="flex items-center gap-1">
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M20 8H4V6h16m0 12H4v-6h16m0-8H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2z"/>
@@ -124,12 +155,12 @@ export default function SiteFooter() {
             </div>
 
             {/* Copyright and legal */}
-            <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-4 text-sm text-gray-500">
-              <span>Termos de Uso</span>
+            <div className="flex flex-col lg:flex-row items-center text-center gap-2 lg:gap-4 text-sm text-gray-500 w-full lg:w-auto">
+              <span className="hidden lg:inline">Termos de Uso</span>
               <span className="hidden lg:inline">•</span>
-              <span>Políticas de Privacidade</span>
+              <span className="hidden lg:inline">Políticas de Privacidade</span>
               <span className="hidden lg:inline">•</span>
-              <span>©2025 • Lorena Jacob • Todos os Direitos Reservados</span>
+              <span className="text-center w-full lg:w-auto">©2025 • Lorena Jacob • Todos os Direitos Reservados</span>
             </div>
           </div>
         </div>

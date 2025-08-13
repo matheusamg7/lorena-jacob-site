@@ -10,11 +10,11 @@ export default function WhatsAppButton() {
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white p-3 sm:p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
       aria-label="Contato via WhatsApp"
     >
       <svg 
-        className="w-7 h-7"
+        className="w-6 h-6 sm:w-7 sm:h-7"
         style={{
           animation: 'vibrate 4s ease-in-out infinite'
         }}

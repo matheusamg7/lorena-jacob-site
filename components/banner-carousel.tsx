@@ -6,13 +6,13 @@ import Image from 'next/image'
 const banners = [
   {
     id: 1,
-    src: '/assets/banners/anuncio1 1.png',
+    src: '/assets/banners/banner-1753819105738.jpg',
     alt: 'Anúncio 1',
     link: '/shop'
   },
   {
     id: 2,
-    src: '/assets/banners/ANUNCIO2 1.png',
+    src: '/assets/banners/banner-1753819796962.jpg',
     alt: 'Anúncio 2',
     link: '/shop'
   }
@@ -32,7 +32,7 @@ export default function BannerCarousel() {
   }, [])
 
   return (
-    <section className="pt-8 pb-20 bg-white">
+    <section className="py-3 sm:pt-8 sm:pb-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative max-w-7xl mx-auto">
           <div className="relative overflow-hidden">
@@ -41,9 +41,9 @@ export default function BannerCarousel() {
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
               {banners.map((banner) => (
-                <div key={banner.id} className="w-full flex-shrink-0">
+                <div key={banner.id} className="w-full flex-shrink-0 px-4 sm:px-0">
                   <a href={banner.link} className="block cursor-pointer">
-                    <div className="relative h-[280px] md:h-[380px] lg:h-[450px]">
+                    <div className="relative h-[200px] sm:h-[280px] md:h-[380px] lg:h-[450px] overflow-hidden rounded-2xl sm:rounded-none">
                       <Image
                         src={banner.src}
                         alt={banner.alt}
@@ -59,8 +59,8 @@ export default function BannerCarousel() {
 
           </div>
           
-          {/* Indicadores */}
-          <div className="flex justify-center gap-3 mt-2">
+          {/* Indicadores - apenas desktop */}
+          <div className="hidden sm:flex justify-center gap-3 mt-2">
             {banners.map((_, index) => (
               <button
                 key={index}

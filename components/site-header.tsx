@@ -47,7 +47,7 @@ export default function SiteHeader() {
     <>
       <header 
         className={cn(
-          "sticky top-0 z-50 w-full bg-white backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300 rounded-b-[2.5rem]",
+          "sticky top-0 z-50 w-full bg-white backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300 lg:rounded-b-[2.5rem]",
           isScrolled && "shadow-sm"
         )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -59,7 +59,7 @@ export default function SiteHeader() {
               alt="Lorena Jacob - Terapeuta Infantil"
               width={200}
               height={60}
-              className="h-14 sm:h-16 w-auto transition-transform duration-200 group-hover:scale-105"
+              className="h-10 sm:h-14 lg:h-16 w-auto transition-transform duration-200 group-hover:scale-105"
               priority
               quality={100}
             />
@@ -167,33 +167,30 @@ export default function SiteHeader() {
           </div>
 
           {/* Menu mobile e tablet */}
-          <div className="lg:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center gap-4">
             <Link 
-              href="https://instagram.com" 
-              target="_blank"
-              className="p-1.5 transition-colors duration-200"
-              aria-label="Instagram"
+              href="/minha-conta" 
+              className="transition-transform duration-200 hover:scale-105"
+              aria-label="Minha Conta"
             >
-              <Instagram className="w-7 h-7 text-[#6FB1CE] hover:text-pink-500 transition-colors" />
-            </Link>
-            <Link 
-              href="https://facebook.com" 
-              target="_blank"
-              className="p-1.5 transition-colors duration-200"
-              aria-label="Facebook"
-            >
-              <Facebook className="w-7 h-7 text-[#6FB1CE] hover:text-blue-600 transition-colors" />
+              <Image
+                src="/minha-conta.svg"
+                alt="Minha Conta"
+                width={36}
+                height={36}
+                className="w-9 h-9"
+              />
             </Link>
             <Sheet>
               <SheetTrigger asChild>
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  className="border-slate-300 hover:bg-slate-50 transition-colors duration-200" 
+                <button 
+                  className="hover:bg-slate-50 transition-colors duration-200 p-2 rounded-lg" 
                   aria-label="Abrir menu"
                 >
-                  <Menu className="w-5 h-5" />
-                </Button>
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[280px] bg-white">
                 <SheetHeader className="text-left">
@@ -257,6 +254,26 @@ export default function SiteHeader() {
                     </Button>
                   </Link>
                   
+                  {/* Redes Sociais mobile */}
+                  <div className="flex items-center justify-center gap-4 py-4">
+                    <Link 
+                      href="https://instagram.com" 
+                      target="_blank"
+                      className="p-2 transition-colors duration-200"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-6 h-6 text-[#6FB1CE] hover:text-pink-500 transition-colors" />
+                    </Link>
+                    <Link 
+                      href="https://facebook.com" 
+                      target="_blank"
+                      className="p-2 transition-colors duration-200"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="w-6 h-6 text-[#6FB1CE] hover:text-blue-600 transition-colors" />
+                    </Link>
+                  </div>
+                  
                   {/* Divisor */}
                   <div className="border-t border-slate-200 my-4" />
                   
@@ -296,6 +313,24 @@ export default function SiteHeader() {
         </div>
       </div>
     </header>
+    {/* Faixa de Loja no Mobile */}
+    <div className="lg:hidden fixed top-[96px] left-0 right-0 z-[45] bg-[#5179C8] py-2">
+      <Link href="/shop" className="block">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-2">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+            </svg>
+            <span className="text-white font-medium text-sm">Acesse nossa Loja Online</span>
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </Link>
+    </div>
+    {/* Espaçador para compensar a faixa fixa no mobile */}
+    <div className="lg:hidden h-[40px]"></div>
     </>
   )
 }
