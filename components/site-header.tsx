@@ -47,10 +47,10 @@ export default function SiteHeader() {
     <>
       <header 
         className={cn(
-          "sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300",
+          "sticky top-0 z-50 w-full bg-white backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300 rounded-b-[2.5rem]",
           isScrolled && "shadow-sm"
         )}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
           {/* Logo com hover sutil */}
           <Link href="/" className="flex items-center group">
@@ -117,14 +117,14 @@ export default function SiteHeader() {
             </Link>
             
             {/* Redes sociais maiores com espaçamento */}
-            <div className="flex items-center gap-3 mx-12">
+            <div className="flex items-center gap-1 mx-12">
               <Link 
                 href="https://instagram.com" 
                 target="_blank"
                 className="p-1 transition-colors duration-200"
                 aria-label="Instagram"
               >
-                <Instagram className="w-6 h-6 text-[#6FB1CE] hover:text-pink-500 transition-colors" />
+                <Instagram className="w-7 h-7 text-[#6FB1CE] hover:text-pink-500 transition-colors" />
               </Link>
               <Link 
                 href="https://facebook.com" 
@@ -132,7 +132,7 @@ export default function SiteHeader() {
                 className="p-1 transition-colors duration-200"
                 aria-label="Facebook"
               >
-                <Facebook className="w-6 h-6 text-[#6FB1CE] hover:text-blue-600 transition-colors" />
+                <Facebook className="w-7 h-7 text-[#6FB1CE] hover:text-blue-600 transition-colors" />
               </Link>
             </div>
             

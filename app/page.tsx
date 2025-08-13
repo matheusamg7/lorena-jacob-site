@@ -16,7 +16,7 @@ export default function Page() {
       <SiteHeader />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden min-h-[calc(100vh-72px)]">
+        <section className="relative overflow-hidden min-h-[calc(100vh-70px)] -mt-8">
           {/* Imagem de fundo */}
           <div className="absolute inset-0 z-0">
             <Image
@@ -34,7 +34,7 @@ export default function Page() {
           <ScrollIndicator />
           
           {/* Conteúdo */}
-          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-72px)] flex items-center">
+          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-70px)] flex items-center pt-8">
             <div className="max-w-3xl py-12 pb-32 lg:pl-12">
               <h1 className="text-[2rem] md:text-[2.75rem] lg:text-[3.5rem] font-bold text-white leading-[1.1] font-[family:var(--font-comfortaa)]">
                 Suporte Personalizado<br />
