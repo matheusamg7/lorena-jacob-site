@@ -5,24 +5,35 @@ import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
-import { Menu, Mail, User, Instagram, Facebook } from 'lucide-react'
-import ContactDialog from "./contact-dialog"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Menu, Instagram, Facebook, Check } from 'lucide-react'
 import { cn } from "@/lib/utils"
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 
 // Navegação simplificada mantendo apenas os emojis essenciais de forma sutil
 const nav = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "Sobre mim" },
+  { href: "/", label: "Início" },
+  { href: "/about", label: "Sobre Mim" },
   { href: "/blog", label: "Blog" },
-  { href: "/shop", label: "Loja" },
+  { href: "/contato", label: "Contato" },
+  { href: "/shop", label: "Loja", isShop: true },
 ]
 
 export default function SiteHeader() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
-  const [headerHeight, setHeaderHeight] = useState(72)
-  const headerRef = useRef<HTMLElement>(null)
+  const [selectedLanguage, setSelectedLanguage] = useState('pt-BR')
+  
+  const languages = [
+    { code: 'pt-BR', label: 'Português', flag: '🇧🇷' },
+    { code: 'en-US', label: 'English', flag: '🇺🇸' },
+    { code: 'es-ES', label: 'Español', flag: '🇪🇸' },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,22 +43,9 @@ export default function SiteHeader() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    const updateHeaderHeight = () => {
-      if (headerRef.current) {
-        setHeaderHeight(headerRef.current.offsetHeight)
-      }
-    }
-    
-    updateHeaderHeight()
-    window.addEventListener('resize', updateHeaderHeight)
-    return () => window.removeEventListener('resize', updateHeaderHeight)
-  }, [])
-
   return (
     <>
       <header 
-        ref={headerRef}
         className={cn(
           "sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300",
           isScrolled && "shadow-sm"
@@ -59,81 +57,113 @@ export default function SiteHeader() {
             <Image
               src="/assets/logoLorena.svg"
               alt="Lorena Jacob - Terapeuta Infantil"
-              width={150}
-              height={40}
-              className="h-10 sm:h-12 w-auto transition-opacity duration-200 group-hover:opacity-80"
+              width={200}
+              height={60}
+              className="h-14 sm:h-16 w-auto transition-transform duration-200 group-hover:scale-105"
+              priority
+              quality={100}
             />
           </Link>
 
           {/* Navegação desktop minimalista */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "text-sm font-medium transition-colors duration-200 hover:text-sky-500 relative",
-                  pathname === item.href 
-                    ? "text-sky-500" 
-                    : "text-slate-600"
+          <nav className="hidden lg:flex items-center">
+            {nav.map((item, index) => (
+              <div key={item.href} className="flex items-center">
+                {item.isShop ? (
+                  <Link
+                    href={item.href}
+                    className="ml-3"
+                  >
+                    <Button
+                      className="bg-[#5179C8] hover:bg-[#4169B8] text-white px-5 py-1 h-7 text-sm font-medium transition-all duration-200 shadow-sm hover:shadow-md rounded-2xl cursor-pointer"
+                    >
+                      {item.label}
+                    </Button>
+                  </Link>
+                ) : (
+                  <>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-[#6FB1CE] relative group",
+                        pathname === item.href 
+                          ? "text-[#6FB1CE] font-semibold" 
+                          : "text-slate-700"
+                      )}
+                    >
+                      {item.label}
+                      <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#6FB1CE] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </Link>
+                    {index < nav.length - 1 && !nav[index + 1].isShop && (
+                      <div className="h-4 w-px bg-slate-300 mx-2" />
+                    )}
+                  </>
                 )}
-              >
-                {item.label}
-                {/* Indicador sutil para página ativa */}
-                {pathname === item.href && (
-                  <div className="absolute -bottom-1 left-0 right-0 h-0.5 bg-sky-400 rounded-full" />
-                )}
-              </Link>
+              </div>
             ))}
           </nav>
 
           {/* Ações do usuário */}
-          <div className="hidden lg:flex items-center space-x-3">
-            {/* Redes sociais minimalistas */}
-            <div className="flex items-center space-x-2">
+          <div className="hidden lg:flex items-center">
+            {/* Entrar na Conta - maior e mais espaçado */}
+            <Link href="/minha-conta" className="cursor-pointer transition-transform duration-200 hover:scale-105 inline-block">
+              <Image
+                src="/minha-conta.svg"
+                alt="Minha Conta"
+                width={36}
+                height={36}
+                className="w-9 h-9"
+              />
+            </Link>
+            
+            {/* Redes sociais maiores com espaçamento */}
+            <div className="flex items-center gap-3 mx-12">
               <Link 
                 href="https://instagram.com" 
                 target="_blank"
-                className="p-2 text-slate-500 hover:text-sky-500 transition-colors duration-200"
+                className="p-1 transition-colors duration-200"
                 aria-label="Instagram"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-6 h-6 text-[#6FB1CE] hover:text-pink-500 transition-colors" />
               </Link>
               <Link 
                 href="https://facebook.com" 
                 target="_blank"
-                className="p-2 text-slate-500 hover:text-blue-600 transition-colors duration-200"
+                className="p-1 transition-colors duration-200"
                 aria-label="Facebook"
               >
-                <Facebook className="w-4 h-4" />
+                <Facebook className="w-6 h-6 text-[#6FB1CE] hover:text-blue-600 transition-colors" />
               </Link>
             </div>
             
-            {/* Divisor sutil */}
-            <div className="h-5 w-px bg-slate-300" />
-            
-            {/* Minha Conta */}
-            <Link href="/minha-conta">
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-slate-600 hover:text-sky-500 hover:bg-sky-50 transition-colors duration-200"
-              >
-                <User className="w-4 h-4 mr-2" />
-                Minha Conta
-              </Button>
-            </Link>
-
-            {/* Botão de contato destacado */}
-            <ContactDialog>
-              <Button
-                size="sm"
-                className="bg-sky-500 hover:bg-sky-600 text-white shadow-sm hover:shadow-md transition-all duration-200 px-6"
-              >
-                <Mail className="w-4 h-4 mr-2" />
-                Contato
-              </Button>
-            </ContactDialog>
+            {/* Seletor de idioma com dropdown */}
+            <DropdownMenu modal={false}>
+              <DropdownMenuTrigger asChild>
+                <button
+                  className="cursor-pointer transition-transform duration-200 hover:scale-105 p-2 focus:outline-none"
+                  aria-label="Selecionar idioma"
+                >
+                  <span className="text-2xl">{languages.find(l => l.code === selectedLanguage)?.flag}</span>
+                </button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="min-w-[150px] z-[100]">
+                {languages.map((language) => (
+                  <DropdownMenuItem
+                    key={language.code}
+                    onClick={() => setSelectedLanguage(language.code)}
+                    className="flex items-center justify-between cursor-pointer"
+                  >
+                    <span className="flex items-center gap-2">
+                      <span className="text-lg">{language.flag}</span>
+                      <span>{language.label}</span>
+                    </span>
+                    {selectedLanguage === language.code && (
+                      <Check className="w-4 h-4 text-[#6FB1CE]" />
+                    )}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Menu mobile e tablet */}
@@ -141,18 +171,18 @@ export default function SiteHeader() {
             <Link 
               href="https://instagram.com" 
               target="_blank"
-              className="p-2 text-slate-500 hover:text-sky-500 transition-colors duration-200"
+              className="p-1.5 transition-colors duration-200"
               aria-label="Instagram"
             >
-              <Instagram className="w-5 h-5" />
+              <Instagram className="w-7 h-7 text-[#6FB1CE] hover:text-pink-500 transition-colors" />
             </Link>
             <Link 
               href="https://facebook.com" 
               target="_blank"
-              className="p-2 text-slate-500 hover:text-blue-600 transition-colors duration-200"
+              className="p-1.5 transition-colors duration-200"
               aria-label="Facebook"
             >
-              <Facebook className="w-5 h-5" />
+              <Facebook className="w-7 h-7 text-[#6FB1CE] hover:text-blue-600 transition-colors" />
             </Link>
             <Sheet>
               <SheetTrigger asChild>
@@ -181,43 +211,84 @@ export default function SiteHeader() {
                 <div className="mt-8 flex flex-col space-y-1">
                   {/* Navegação mobile */}
                   {nav.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={cn(
-                        "px-3 py-3 text-sm font-medium transition-colors duration-200 rounded-lg",
-                        pathname === item.href 
-                          ? "text-sky-500 bg-sky-50" 
-                          : "text-slate-700 hover:text-sky-500 hover:bg-slate-50"
-                      )}
-                    >
-                      {item.label}
-                    </Link>
+                    item.isShop ? (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="px-3 py-2"
+                      >
+                        <Button className="w-full bg-[#5179C8] hover:bg-[#4169B8] text-white rounded-2xl h-9 py-1 cursor-pointer">
+                          {item.label}
+                        </Button>
+                      </Link>
+                    ) : (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className={cn(
+                          "px-3 py-3 text-sm font-medium transition-colors duration-200 rounded-lg",
+                          pathname === item.href 
+                            ? "text-[#6FB1CE] bg-sky-50 font-semibold" 
+                            : "text-slate-700 hover:text-[#6FB1CE] hover:bg-slate-50"
+                        )}
+                      >
+                        {item.label}
+                      </Link>
+                    )
                   ))}
                   
                   {/* Divisor */}
                   <div className="border-t border-slate-200 my-4" />
                   
-                  {/* Minha Conta mobile */}
+                  {/* Entrar na Conta mobile */}
                   <Link href="/minha-conta">
                     <Button
                       variant="ghost"
-                      className="w-full justify-start px-3 py-3 text-slate-700 hover:text-sky-500 hover:bg-slate-50"
+                      className="w-full justify-start px-3 py-3 text-slate-700 hover:text-[#6FB1CE] hover:bg-slate-50"
                     >
-                      <User className="w-4 h-4 mr-3" />
-                      Minha Conta
+                      <Image
+                        src="/minha-conta.svg"
+                        alt="Minha Conta"
+                        width={16}
+                        height={16}
+                        className="mr-3"
+                      />
+                      Entrar na conta
                     </Button>
                   </Link>
-
-                  {/* Botão de contato mobile */}
-                  <div className="pt-2 px-4">
-                    <ContactDialog>
-                      <Button className="w-full bg-sky-500 hover:bg-sky-600 text-white rounded-lg">
-                        <Mail className="w-4 h-4 mr-2" />
-                        Fale Comigo
+                  
+                  {/* Divisor */}
+                  <div className="border-t border-slate-200 my-4" />
+                  
+                  {/* Seletor de idioma mobile */}
+                  <DropdownMenu modal={false}>
+                    <DropdownMenuTrigger asChild>
+                      <Button
+                        variant="ghost"
+                        className="w-full justify-center px-3 py-3 hover:bg-slate-50 rounded-lg focus:outline-none"
+                        aria-label="Selecionar idioma"
+                      >
+                        <span className="text-xl">{languages.find(l => l.code === selectedLanguage)?.flag}</span>
                       </Button>
-                    </ContactDialog>
-                  </div>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent align="center" className="min-w-[150px] z-[100]">
+                      {languages.map((language) => (
+                        <DropdownMenuItem
+                          key={language.code}
+                          onClick={() => setSelectedLanguage(language.code)}
+                          className="flex items-center justify-between cursor-pointer"
+                        >
+                          <span className="flex items-center gap-2">
+                            <span className="text-lg">{language.flag}</span>
+                            <span>{language.label}</span>
+                          </span>
+                          {selectedLanguage === language.code && (
+                            <Check className="w-4 h-4 text-sky-600" />
+                          )}
+                        </DropdownMenuItem>
+                      ))}
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               </SheetContent>
             </Sheet>
@@ -225,20 +296,6 @@ export default function SiteHeader() {
         </div>
       </div>
     </header>
-    
-    {/* Botão ACESSE A LOJA - Visível em mobile e tablet, abaixo da header */}
-    <div 
-      className="lg:hidden sticky z-40"
-      style={{ top: `${headerHeight}px` }}
-    >
-      <Link href="/shop">
-        <Button
-          className="w-full bg-gradient-to-r from-sky-400 to-sky-500 hover:from-sky-500 hover:to-sky-600 text-white font-bold py-3 text-sm uppercase tracking-wide rounded-none border-0 transition-all duration-300"
-        >
-          ACESSE A LOJA
-        </Button>
-      </Link>
-    </div>
     </>
   )
 }
