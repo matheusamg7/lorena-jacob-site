@@ -154,6 +154,61 @@ export default function Page() {
         {/* Banner Carousel */}
         <BannerCarousel />
 
+        {/* Sobre Mim */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="relative">
+                {/* Card marrom */}
+                <div className="bg-[#8B7659] rounded-[2.5rem] min-h-[400px] p-12 pr-12 lg:pr-[200px] lg:mr-[200px] flex items-center">
+                  <div className="text-white max-w-2xl">
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#FFFCB2] mb-6">
+                      SOBRE MIM
+                    </h2>
+                    <div className="space-y-3 text-base leading-relaxed">
+                      <p>
+                        Sou <span className="font-bold">Lorena Jacob</span>, <span className="font-bold">terapeuta infantil</span> e mãe de duas crianças autistas, em formação como <span className="font-bold">Terapeuta Ocupacional</span>. Há <span className="font-bold">mais de 10 anos</span> atuo com <span className="font-bold">TEA, TDAH, TOD, seletividade alimentar e deficiência intelectual</span>, entre outros.
+                      </p>
+                      <p>
+                        Atendo <span className="font-bold">presencialmente em Londres</span> e também <span className="font-bold">online</span>.
+                      </p>
+                      <p>
+                        Ajudo famílias a <span className="font-bold">compreender o autismo</span> com <span className="font-bold">abordagens lúdicas e personalizadas</span>, promovendo avanços no <span className="font-bold">comportamento, linguagem, socialização, autonomia e habilidades cognitivas e motoras</span>.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Imagem da Lorena - Desktop */}
+                <div className="absolute right-0 lg:right-4 bottom-12 hidden lg:block">
+                  <div className="relative w-[400px] h-[450px]">
+                    <Image
+                      src="/assets/sobre-lorena.png"
+                      alt="Lorena Jacob"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                </div>
+
+                {/* Imagem mobile */}
+                <div className="mt-8 flex justify-center lg:hidden">
+                  <div className="relative w-[300px] h-[350px]">
+                    <Image
+                      src="/assets/sobre-lorena.png"
+                      alt="Lorena Jacob"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Featured eBooks */}
         <section className="container mx-auto px-4 py-12">
           <div className="flex items-end justify-between gap-4">
