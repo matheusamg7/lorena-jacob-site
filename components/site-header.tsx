@@ -312,9 +312,8 @@ export default function SiteHeader() {
           </div>
         </div>
       </div>
-    </header>
-    {/* Faixa de Loja no Mobile */}
-    <div className="lg:hidden fixed top-[96px] left-0 right-0 z-[45] bg-[#5179C8] py-2">
+      {/* Faixa de Loja no Mobile - Dentro do Header */}
+      <div className="lg:hidden bg-[#5179C8] py-2 -mx-4 sm:-mx-6">
       <Link href="/shop" className="block">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center gap-2">
@@ -328,9 +327,8 @@ export default function SiteHeader() {
           </div>
         </div>
       </Link>
-    </div>
-    {/* Espaçador para compensar a faixa fixa no mobile */}
-    <div className="lg:hidden h-[40px]"></div>
+      </div>
+    </header>
     </>
   )
 }

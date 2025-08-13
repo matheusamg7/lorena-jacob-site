@@ -282,7 +282,7 @@ export default function Page() {
                       <h3 className="text-xl font-bold text-[#6FB1CE] mb-3">
                         Autismo na Vida Adulta
                       </h3>
-                      <p className="text-gray-600 text-sm mb-4 flex-grow line-clamp-2">
+                      <p className="text-[#5B472B] text-sm mb-4 flex-grow line-clamp-2">
                         Nesse artigo, vamos falar sobre como o autismo pode aparecer na vida adulta, os problemas encarados e a importância de acolher e estar bem informado durante esse processo.
                       </p>
                       <Link href="/blog/autismo-na-vida-adulta">
@@ -292,7 +292,7 @@ export default function Page() {
                           SAIBA MAIS
                         </Button>
                       </Link>
-                      <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-4 text-xs text-[#5B472B]">
                         <span>176 visualizações</span>
                         <span>•</span>
                         <span>0 comentários</span>
@@ -314,7 +314,7 @@ export default function Page() {
                       <h3 className="text-xl font-bold text-[#6FB1CE] mb-3">
                         Como Identificar o Autismo
                       </h3>
-                      <p className="text-gray-600 text-sm mb-4 flex-grow line-clamp-2">
+                      <p className="text-[#5B472B] text-sm mb-4 flex-grow line-clamp-2">
                         Descobertas e aprendizados sobre os sinais e características do autismo, ajudando pais e profissionais a identificarem precocemente.
                       </p>
                       <Link href="/blog/como-identificar-o-autismo">
@@ -324,7 +324,7 @@ export default function Page() {
                           SAIBA MAIS
                         </Button>
                       </Link>
-                      <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-4 text-xs text-[#5B472B]">
                         <span>542 visualizações</span>
                         <span>•</span>
                         <span>0 comentários</span>
@@ -516,26 +516,26 @@ export default function Page() {
                 <div className="flex gap-4 sm:gap-6 overflow-hidden">
                   {/* Depoimento 1 */}
                   <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 min-w-[280px] sm:min-w-[320px] max-w-[280px] sm:max-w-[320px] flex-shrink-0">
-                    <p className="text-gray-700 text-sm sm:text-base mb-4 italic">
+                    <p className="text-[#5B472B] text-sm sm:text-base mb-4 italic">
                       "Que no mundo venha ter mais profissionais assim como você."
                     </p>
-                    <h4 className="font-bold text-gray-900 text-center text-base sm:text-lg">Bruna</h4>
+                    <h4 className="font-bold text-[#5B472B] text-center text-base sm:text-lg">Bruna</h4>
                   </div>
 
                   {/* Depoimento 2 */}
                   <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 min-w-[280px] sm:min-w-[320px] max-w-[280px] sm:max-w-[320px] flex-shrink-0">
-                    <p className="text-gray-700 text-sm sm:text-base mb-4 italic">
+                    <p className="text-[#5B472B] text-sm sm:text-base mb-4 italic">
                       "Que no mundo venha ter mais profissionais assim como você."
                     </p>
-                    <h4 className="font-bold text-gray-900 text-center text-base sm:text-lg">Luana</h4>
+                    <h4 className="font-bold text-[#5B472B] text-center text-base sm:text-lg">Luana</h4>
                   </div>
 
                   {/* Depoimento 3 */}
                   <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 min-w-[280px] sm:min-w-[320px] max-w-[280px] sm:max-w-[320px] flex-shrink-0">
-                    <p className="text-gray-700 text-sm sm:text-base mb-4 italic">
+                    <p className="text-[#5B472B] text-sm sm:text-base mb-4 italic">
                       "Meu filho evoluiu muito com suas técnicas e abordagem personalizada."
                     </p>
-                    <h4 className="font-bold text-gray-900 text-center text-base sm:text-lg">Michele</h4>
+                    <h4 className="font-bold text-[#5B472B] text-center text-base sm:text-lg">Michele</h4>
                   </div>
                 </div>
 

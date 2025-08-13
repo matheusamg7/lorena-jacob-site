@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Poppins, Quicksand, Comfortaa } from 'next/font/google'
+import { Poppins, Quicksand, Comfortaa, Playfair_Display } from 'next/font/google'
 import WhatsAppButton from '@/components/whatsapp-button'
 import './globals.css'
 
@@ -24,6 +24,13 @@ const comfortaa = Comfortaa({
   variable: '--font-comfortaa',
 })
 
+const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-playfair',
+})
+
 export const metadata: Metadata = {
   title: 'Lorena Jacob - Terapeuta Infantil',
   description: 'Terapeuta Infantil especializada em desenvolvimento infantil',
@@ -35,7 +42,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR" className={`${poppins.variable} ${quicksand.variable} ${comfortaa.variable}`}>
+    <html lang="pt-BR" className={`${poppins.variable} ${quicksand.variable} ${comfortaa.variable} ${playfairDisplay.variable}`}>
       <body className={`${poppins.className} font-sans`}>
         {children}
         <WhatsAppButton />
