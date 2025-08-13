@@ -155,53 +155,71 @@ export default function Page() {
         <BannerCarousel />
 
         {/* Sobre Mim */}
-        <section className="py-20 pb-24 bg-white">
+        <section className="py-12 bg-white">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
+              {/* Título fora do card marrom */}
+              <div className="text-center mb-8">
+                <h2 className="text-4xl md:text-5xl font-bold text-[#8B7659] font-[family:var(--font-comfortaa)]">
+                  SOBRE MIM
+                </h2>
+              </div>
+              
               <div className="relative">
+                {/* Foto da Lorena posicionada no canto */}
+                <div className="absolute left-4 lg:left-8 top-0 z-20 hidden lg:block">
+                  <div className="relative w-[350px] h-[400px]">
+                    <Image
+                      src="/assets/sobre-lorena.png"
+                      alt="Lorena Jacob"
+                      fill
+                      className="object-contain drop-shadow-2xl"
+                      priority
+                    />
+                  </div>
+                </div>
+                
                 {/* Card marrom */}
-                <div className="bg-[#8B7659] rounded-[2.5rem] min-h-[400px] p-12 pr-12 lg:pr-[200px] lg:mr-[200px] flex items-center">
-                  <div className="text-white max-w-2xl">
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#FFFCB2] mb-6 font-[family:var(--font-comfortaa)]">
-                      SOBRE MIM
-                    </h2>
-                    <div className="space-y-3 text-base leading-relaxed">
-                      <p>
-                        Sou <span className="font-bold">Lorena Jacob</span>, <span className="font-bold">terapeuta infantil</span> e mãe de duas crianças autistas, em formação como <span className="font-bold">Terapeuta Ocupacional</span>. Há <span className="font-bold">mais de 10 anos</span> atuo com <span className="font-bold">TEA, TDAH, TOD, seletividade alimentar e deficiência intelectual</span>, entre outros.
-                      </p>
-                      <p>
-                        Atendo <span className="font-bold">presencialmente em Londres</span> e também <span className="font-bold">online</span>.
-                      </p>
-                      <p>
-                        Ajudo famílias a <span className="font-bold">compreender o autismo</span> com <span className="font-bold">abordagens lúdicas e personalizadas</span>, promovendo avanços no <span className="font-bold">comportamento, linguagem, socialização, autonomia e habilidades cognitivas e motoras</span>.
-                      </p>
+                <div className="bg-[#8B7659] rounded-[3rem] overflow-hidden relative z-10">
+                  <div className="flex flex-col lg:flex-row items-center py-8">
+                    {/* Espaçador para a foto no desktop */}
+                    <div className="hidden lg:block lg:w-1/3"></div>
+                    
+                    {/* Foto no mobile */}
+                    <div className="lg:hidden p-4">
+                      <div className="relative w-full h-[280px]">
+                        <Image
+                          src="/assets/sobre-lorena.png"
+                          alt="Lorena Jacob"
+                          fill
+                          className="object-contain drop-shadow-2xl"
+                          priority
+                        />
+                      </div>
                     </div>
-                  </div>
-                </div>
-
-                {/* Imagem da Lorena - Desktop */}
-                <div className="absolute right-0 lg:right-4 bottom-12 hidden lg:block">
-                  <div className="relative w-[400px] h-[450px]">
-                    <Image
-                      src="/assets/sobre-lorena.png"
-                      alt="Lorena Jacob"
-                      fill
-                      className="object-contain"
-                      priority
-                    />
-                  </div>
-                </div>
-
-                {/* Imagem mobile */}
-                <div className="mt-8 flex justify-center lg:hidden">
-                  <div className="relative w-[300px] h-[350px]">
-                    <Image
-                      src="/assets/sobre-lorena.png"
-                      alt="Lorena Jacob"
-                      fill
-                      className="object-contain"
-                      priority
-                    />
+                    
+                    {/* Texto */}
+                    <div className="lg:w-2/3 p-6 lg:pr-12">
+                      <div className="text-white space-y-3 max-w-3xl">
+                        <div className="bg-white/10 backdrop-blur rounded-xl p-5">
+                          <p className="text-base leading-relaxed">
+                            Sou <span className="font-bold text-[#FFFCB2]">Lorena Jacob</span>, terapeuta infantil e mãe de duas crianças autistas, em formação como <span className="font-bold text-[#FFFCB2]">Terapeuta Ocupacional</span>.
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white/10 backdrop-blur rounded-xl p-5">
+                          <p className="text-base leading-relaxed">
+                            Há <span className="font-bold text-[#FFFCB2]">mais de 10 anos</span> atuo com TEA, TDAH, TOD, seletividade alimentar e deficiência intelectual, entre outros. Atendo presencialmente em <span className="font-bold text-[#FFFCB2]">Londres</span> e também online.
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white/10 backdrop-blur rounded-xl p-5">
+                          <p className="text-base leading-relaxed">
+                            Ajudo famílias a compreender o autismo com <span className="font-bold text-[#FFFCB2]">abordagens lúdicas e personalizadas</span>, promovendo avanços no comportamento, linguagem, socialização, autonomia e habilidades cognitivas e motoras.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
