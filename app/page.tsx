@@ -211,7 +211,7 @@ export default function Page() {
 
         {/* Blog Preview com Cards Customizados */}
         <section className="relative pt-12 pb-16 mt-8 -mb-8 z-10">
-          <div className="absolute inset-0 bg-gray-50 rounded-[3rem] shadow-[0_-10px_30px_rgba(0,0,0,0.1),0_10px_30px_rgba(0,0,0,0.1)]"></div>
+          <div className="absolute inset-0 bg-gray-50 rounded-[3rem] shadow-[0_-10px_30px_rgba(0,0,0,0.1)]"></div>
           <div className="relative z-10">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
@@ -320,7 +320,7 @@ export default function Page() {
         </section>
 
         {/* Seção Redes Sociais */}
-        <section className="relative py-20 bg-white mt-8">
+        <section className="relative py-20 bg-white -mt-4">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
               <div className="relative bg-[#8B7659] rounded-[3rem] overflow-hidden h-[500px] lg:h-[600px]">
@@ -399,41 +399,80 @@ export default function Page() {
           </div>
         </section>
 
-        {/* Featured eBooks */}
-        <section className="container mx-auto px-4 py-12">
-          <div className="flex items-end justify-between gap-4">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold">Featured eBooks</h2>
-              <p className="text-muted-foreground">Practical guides for everyday parenting moments.</p>
+        {/* Separador */}
+        <div className="w-full">
+          <Image
+            src="/assets/separador.png"
+            alt="Separador"
+            width={1920}
+            height={80}
+            className="w-full h-auto"
+          />
+        </div>
+
+        {/* Seção de Depoimentos */}
+        <section className="py-20" style={{ backgroundColor: '#FAFFE7' }}>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#6FB1CE] font-[family:var(--font-comfortaa)]">
+                DEPOIMENTOS
+              </h2>
             </div>
-            <Button asChild variant="outline">
-              <Link href="/shop">View all</Link>
-            </Button>
-          </div>
-          <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {ebooks.slice(0, 4).map((item) => (
-              <EbookCard key={item.id} item={item} />
-            ))}
+
+            {/* Carousel de Depoimentos */}
+            <div className="relative max-w-6xl mx-auto">
+              <div className="flex items-center justify-center gap-4">
+                {/* Botão Anterior */}
+                <button className="bg-[#6FB1CE] rounded-full p-3 hover:bg-[#5fa0bf] transition-colors">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+
+                {/* Cards de Depoimentos */}
+                <div className="flex gap-6 overflow-hidden">
+                  {/* Depoimento 1 */}
+                  <div className="bg-white rounded-2xl p-8 min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <p className="text-gray-700 text-base mb-4 italic">
+                      "Que no mundo venha ter mais profissionais assim como você."
+                    </p>
+                    <h4 className="font-bold text-gray-900 text-center text-lg">Bruna</h4>
+                  </div>
+
+                  {/* Depoimento 2 */}
+                  <div className="bg-white rounded-2xl p-8 min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <p className="text-gray-700 text-base mb-4 italic">
+                      "Que no mundo venha ter mais profissionais assim como você."
+                    </p>
+                    <h4 className="font-bold text-gray-900 text-center text-lg">Luana</h4>
+                  </div>
+
+                  {/* Depoimento 3 */}
+                  <div className="bg-white rounded-2xl p-8 min-w-[320px] max-w-[320px] flex-shrink-0">
+                    <p className="text-gray-700 text-base mb-4 italic">
+                      "Meu filho evoluiu muito com suas técnicas e abordagem personalizada."
+                    </p>
+                    <h4 className="font-bold text-gray-900 text-center text-lg">Michele</h4>
+                  </div>
+                </div>
+
+                {/* Botão Próximo */}
+                <button className="bg-[#6FB1CE] rounded-full p-3 hover:bg-[#5fa0bf] transition-colors">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Indicadores */}
+              <div className="flex justify-center gap-2 mt-8">
+                <span className="w-8 h-2 bg-[#6FB1CE] rounded-full"></span>
+                <span className="w-8 h-2 bg-[#6FB1CE]/30 rounded-full"></span>
+              </div>
+            </div>
           </div>
         </section>
 
-
-        {/* CTA */}
-        <section className="container mx-auto px-4 py-16">
-          <div className="rounded-2xl border bg-white p-8 md:p-10 relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-[#78BEE0] opacity-30" />
-            <div className="absolute -bottom-8 -left-8 w-32 h-32 rounded-full bg-[#FFFCB3] opacity-60" />
-            <h3 className="text-2xl md:text-3xl font-bold">Ready to start a calmer routine?</h3>
-            <p className="mt-2 text-muted-foreground">
-              Explore step-by-step guides crafted for real life with little ones.
-            </p>
-            <div className="mt-6">
-              <Button asChild className="bg-[#78BEE0] text-black hover:bg-[#69acd0]">
-                <Link href="/shop">Browse the shop</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
       </main>
       <SiteFooter />
     </div>
