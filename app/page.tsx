@@ -51,7 +51,7 @@ export default function Page() {
               <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6">
                 <ContactDialog>
                   <Button 
-                    className="bg-white hover:bg-gray-100 text-[#6FB1CE] font-bold px-8 py-3 h-auto text-base shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg"
+                    className="bg-white hover:bg-gray-100 text-[#6FB1CE] font-bold px-8 py-3 h-auto text-base shadow-lg hover:shadow-xl transition-all duration-200 rounded-full cursor-pointer"
                   >
                     Agende uma avaliação
                   </Button>
@@ -63,6 +63,88 @@ export default function Page() {
                 >
                   Conheça a Lorena Jacob
                 </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Seção de Serviços */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {/* Card 1 - Acompanhamento Personalizado */}
+              <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <Image
+                  src="/Acompanhamento-card.jpg"
+                  alt="Acompanhamento Personalizado"
+                  fill
+                  className="object-cover object-center"
+                  quality={100}
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/70 via-40% to-transparent to-70%"></div>
+                <div className="relative p-8 h-[400px] flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-[#27769B] text-center">
+                      Acompanhamento<br />Personalizado
+                    </h3>
+                  </div>
+                  <Button 
+                    className="w-full bg-[#27769B] hover:bg-[#1e5a79] text-white font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                  >
+                    SAIBA MAIS
+                  </Button>
+                </div>
+              </div>
+
+              {/* Card 2 - Treinamento para Pais & Educadores */}
+              <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <Image
+                  src="/treinamento-card.png"
+                  alt="Treinamento para Pais & Educadores"
+                  fill
+                  className="object-cover object-center"
+                  quality={100}
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/70 via-40% to-transparent to-70%"></div>
+                <div className="relative p-8 h-[400px] flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-[#27769B] text-center">
+                      Treinamento para<br />Pais & Educadores
+                    </h3>
+                  </div>
+                  <Button 
+                    className="w-full bg-[#27769B] hover:bg-[#1e5a79] text-white font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                  >
+                    SAIBA MAIS
+                  </Button>
+                </div>
+              </div>
+
+              {/* Card 3 - Palestras & Consultorias */}
+              <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <Image
+                  src="/palestras.jpg"
+                  alt="Palestras & Consultorias"
+                  fill
+                  className="object-cover object-center scale-110"
+                  quality={100}
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/70 via-40% to-transparent to-70%"></div>
+                <div className="relative p-8 h-[400px] flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-[#27769B] text-center">
+                      Palestras &<br />Consultorias
+                    </h3>
+                  </div>
+                  <Button 
+                    className="w-full bg-[#27769B] hover:bg-[#1e5a79] text-white font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                  >
+                    SAIBA MAIS
+                  </Button>
+                </div>
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Poppins, Quicksand } from 'next/font/google'
+import WhatsAppButton from '@/components/whatsapp-button'
 import './globals.css'
 
 const poppins = Poppins({
@@ -28,7 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={`${poppins.variable} ${quicksand.variable}`}>
-      <body className={`${poppins.className} font-sans`}>{children}</body>
+      <body className={`${poppins.className} font-sans`}>
+        {children}
+        <WhatsAppButton />
+      </body>
     </html>
   )
 }
