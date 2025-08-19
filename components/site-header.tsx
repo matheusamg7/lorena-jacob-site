@@ -14,13 +14,14 @@ import {
 import { Menu, Instagram, Facebook, Check } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { useState, useEffect } from "react"
+import ContactModal from "@/components/contact-modal"
 
 // Navegação simplificada mantendo apenas os emojis essenciais de forma sutil
 const nav = [
   { href: "/", label: "Início" },
   { href: "/about", label: "Sobre Mim" },
   { href: "/blog", label: "Blog" },
-  { href: "/contato", label: "Contato" },
+  { href: "#contato", label: "Contato", isContact: true },
   { href: "/shop", label: "Loja", isShop: true },
 ]
 
@@ -28,6 +29,7 @@ export default function SiteHeader() {
   const pathname = usePathname()
   const [isScrolled, setIsScrolled] = useState(false)
   const [selectedLanguage, setSelectedLanguage] = useState('pt-BR')
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false)
   
   const languages = [
     { code: 'pt-BR', label: 'Português', flag: '🇧🇷' },
@@ -42,6 +44,13 @@ export default function SiteHeader() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Abre modal quando URL é /contato
+  useEffect(() => {
+    if (pathname === '/contato') {
+      setIsContactModalOpen(true)
+    }
+  }, [pathname])
 
   return (
     <>
@@ -80,6 +89,16 @@ export default function SiteHeader() {
                       {item.label}
                     </Button>
                   </Link>
+                ) : item.isContact ? (
+                  <>
+                    <button
+                      onClick={() => setIsContactModalOpen(true)}
+                      className="px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-[#6FB1CE] relative group text-slate-700"
+                    >
+                      {item.label}
+                      <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#6FB1CE] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                    </button>
+                  </>
                 ) : (
                   <>
                     <Link
@@ -119,7 +138,7 @@ export default function SiteHeader() {
             {/* Redes sociais maiores com espaçamento */}
             <div className="flex items-center gap-1 mx-12">
               <Link 
-                href="https://instagram.com" 
+                href="https://instagram.com/lorenajacob.st" 
                 target="_blank"
                 className="p-1 transition-colors duration-200"
                 aria-label="Instagram"
@@ -218,6 +237,20 @@ export default function SiteHeader() {
                           {item.label}
                         </Button>
                       </Link>
+                    ) : item.isContact ? (
+                      <button
+                        key={item.href}
+                        onClick={() => {
+                          setIsContactModalOpen(true)
+                          // Fechar o Sheet quando clicar em Contato
+                          document.querySelector('[data-state="open"]')?.dispatchEvent(
+                            new KeyboardEvent('keydown', { key: 'Escape' })
+                          )
+                        }}
+                        className="px-3 py-3 text-sm font-medium transition-colors duration-200 rounded-lg text-slate-700 hover:text-[#6FB1CE] hover:bg-slate-50 text-left w-full"
+                      >
+                        {item.label}
+                      </button>
                     ) : (
                       <Link
                         key={item.href}
@@ -257,7 +290,7 @@ export default function SiteHeader() {
                   {/* Redes Sociais mobile */}
                   <div className="flex items-center justify-center gap-4 py-4">
                     <Link 
-                      href="https://instagram.com" 
+                      href="https://instagram.com/lorenajacob.st" 
                       target="_blank"
                       className="p-2 transition-colors duration-200"
                       aria-label="Instagram"
@@ -329,6 +362,12 @@ export default function SiteHeader() {
       </Link>
       </div>
     </header>
+    
+    {/* Contact Modal */}
+    <ContactModal 
+      isOpen={isContactModalOpen} 
+      onClose={() => setIsContactModalOpen(false)} 
+    />
     </>
   )
 }
