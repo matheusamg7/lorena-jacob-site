@@ -293,7 +293,7 @@ export default function AboutPage() {
                     </h2>
                     <div className="mt-4">
                       <Image
-                        src="/assets/logoLorena.svg"
+                        src="/logo-lorena-boa.webp"
                         alt="Lorena Jacob"
                         width={200}
                         height={60}

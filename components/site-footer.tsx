@@ -14,11 +14,11 @@ export default function SiteFooter() {
               {/* Logo */}
               <Link href="/">
                 <Image
-                  src="/assets/Logo.png"
+                  src="/logo-lorena-boa.webp"
                   alt="Lorena Jacob - Terapeuta Infantil"
-                  width={150}
-                  height={50}
-                  className="h-12 w-auto"
+                  width={200}
+                  height={70}
+                  className="h-16 w-auto"
                 />
               </Link>
               
@@ -44,11 +44,11 @@ export default function SiteFooter() {
             {/* Logo */}
             <Link href="/" className="mb-2">
               <Image
-                src="/assets/Logo.png"
+                src="/logo-lorena-boa.webp"
                 alt="Lorena Jacob - Terapeuta Infantil"
-                width={280}
-                height={90}
-                className="h-24 w-auto"
+                width={320}
+                height={100}
+                className="h-28 w-auto"
               />
             </Link>
             

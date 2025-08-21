@@ -72,7 +72,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           {/* Coluna Esquerda: Logo (visível apenas no desktop) */}
           <div className="hidden lg:flex items-center justify-center p-10 bg-gray-50/50 min-w-[350px] relative">
             <Image
-              src="/assets/logoLorena.svg"
+              src="/logo-lorena-boa.webp"
               alt="Lorena Jacob - Terapeuta Infantil"
               width={260}
               height={100}
@@ -90,7 +90,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             {/* Logo no mobile (visível apenas no mobile) */}
             <div className="lg:hidden mb-8 flex justify-center">
               <Image
-                src="/assets/logoLorena.svg"
+                src="/logo-lorena-boa.webp"
                 alt="Lorena Jacob - Terapeuta Infantil"
                 width={200}
                 height={70}

@@ -59,16 +59,16 @@ export default function SiteHeader() {
           "sticky top-0 z-50 w-full bg-white backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300 lg:rounded-b-[2.5rem]",
           isScrolled && "shadow-sm"
         )}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center justify-between">
           {/* Logo com hover sutil */}
           <Link href="/" className="flex items-center group">
             <Image
-              src="/assets/logoLorena.svg"
+              src="/logo-lorena-boa.webp"
               alt="Lorena Jacob - Terapeuta Infantil"
-              width={200}
-              height={60}
-              className="h-10 sm:h-14 lg:h-16 w-auto transition-transform duration-200 group-hover:scale-105"
+              width={280}
+              height={80}
+              className="h-14 sm:h-16 lg:h-20 w-auto transition-transform duration-200 group-hover:scale-105"
               priority
               quality={100}
             />
@@ -93,7 +93,7 @@ export default function SiteHeader() {
                   <>
                     <button
                       onClick={() => setIsContactModalOpen(true)}
-                      className="px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-[#6FB1CE] relative group text-slate-700"
+                      className="px-4 py-2 text-sm font-medium transition-all duration-200 hover:text-[#6FB1CE] relative group text-slate-700 cursor-pointer"
                     >
                       {item.label}
                       <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-[#6FB1CE] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -215,7 +215,7 @@ export default function SiteHeader() {
                 <SheetHeader className="text-left">
                   <SheetTitle className="flex items-center">
                     <Image
-                      src="/assets/logoLorena.svg"
+                      src="/logo-lorena-boa.webp"
                       alt="Lorena Jacob"
                       width={120}
                       height={32}
@@ -247,7 +247,7 @@ export default function SiteHeader() {
                             new KeyboardEvent('keydown', { key: 'Escape' })
                           )
                         }}
-                        className="px-3 py-3 text-sm font-medium transition-colors duration-200 rounded-lg text-slate-700 hover:text-[#6FB1CE] hover:bg-slate-50 text-left w-full"
+                        className="px-3 py-3 text-sm font-medium transition-colors duration-200 rounded-lg text-slate-700 hover:text-[#6FB1CE] hover:bg-slate-50 text-left w-full cursor-pointer"
                       >
                         {item.label}
                       </button>
