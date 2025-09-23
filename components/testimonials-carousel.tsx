@@ -96,7 +96,7 @@ export default function TestimonialsCarousel() {
                       className={`bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 ${itemsPerView === 1 ? 'max-w-[320px] w-full' : 'flex-1 min-w-0'}`}
                     >
                       <p className="text-[#5B472B] text-sm sm:text-base mb-4 italic">
-                        "{testimonial.text}"
+                        &ldquo;{testimonial.text}&rdquo;
                       </p>
                       <h4 className="font-bold text-[#5B472B] text-center text-base sm:text-lg">
                         {testimonial.author}
