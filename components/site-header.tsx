@@ -45,13 +45,6 @@ export default function SiteHeader() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Abre modal quando URL é /contato
-  useEffect(() => {
-    if (pathname === '/contato') {
-      setIsContactModalOpen(true)
-    }
-  }, [pathname])
-
   return (
     <>
       {/* Menu Mobile Overlay - Fora do header */}
@@ -138,10 +131,11 @@ export default function SiteHeader() {
           </div>
       </>
 
-      <header 
+      <header
         className={cn(
-          "sticky top-0 z-50 w-full bg-white backdrop-blur-sm border-b border-slate-200/50 transition-all duration-300 lg:rounded-b-[2.5rem]",
-          isScrolled && "shadow-sm"
+          "sticky top-0 z-50 w-full bg-white backdrop-blur-sm transition-all duration-300",
+          isScrolled && "shadow-sm",
+          "lg:border-b lg:border-slate-200/50 lg:rounded-b-[2.5rem]"
         )}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-3">
           <div className="flex items-center justify-between">

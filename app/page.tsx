@@ -8,6 +8,7 @@ import EbookCard from "@/components/ebook-card"
 import PostCard from "@/components/post-card"
 import ScrollIndicator from "@/components/scroll-indicator"
 import BannerCarousel from "@/components/banner-carousel"
+import TestimonialsCarousel from "@/components/testimonials-carousel"
 import { ebooks, posts } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 
@@ -400,7 +401,7 @@ export default function Page() {
               <div className="text-center">
                 <Link href="/blog">
                   <Button
-                    className="bg-[#FFFCB3] hover:bg-[#f5f2a0] text-[#27769B] font-bold px-8 sm:px-12 md:px-16 py-4 sm:py-5 rounded-full text-base sm:text-lg md:text-xl cursor-pointer"
+                    className="bg-[#8B7659] hover:bg-[#735d49] text-white font-bold px-8 sm:px-12 md:px-16 py-4 sm:py-5 rounded-full text-base sm:text-lg md:text-xl cursor-pointer"
                   >
                     ACESSE O BLOG
                   </Button>
@@ -477,7 +478,7 @@ export default function Page() {
                         REDES SOCIAIS
                       </h2>
 
-                      <div className="flex items-center gap-3 mb-8 text-2xl">
+                      <div className="flex items-center gap-3 text-2xl">
                         {/* Instagram */}
                         <Link href="https://instagram.com/lorenajacob.st" target="_blank" className="text-white hover:text-[#FFFCB3] transition-colors">
                           <svg
@@ -499,11 +500,6 @@ export default function Page() {
                         <span className="font-bold">/@lorenajacob.st</span>
                       </div>
 
-                      <Link href="https://instagram.com/lorenajacob.st" target="_blank">
-                        <Button className="bg-[#8B7659] hover:bg-[#735d49] text-white font-bold px-8 py-4 rounded-full text-lg">
-                          SIGA O MEU PERFIL
-                        </Button>
-                      </Link>
                     </div>
                     
                     {/* Instagram Card - desktop only */}
@@ -556,56 +552,7 @@ export default function Page() {
             </div>
 
             {/* Carousel de Depoimentos */}
-            <div className="relative max-w-6xl mx-auto">
-              <div className="flex items-center justify-center gap-2 sm:gap-4">
-                {/* Botão Anterior */}
-                <button className="bg-[#4A7A98] rounded-full p-2 sm:p-3 hover:bg-[#3a6a88] transition-colors">
-                  <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-
-                {/* Cards de Depoimentos */}
-                <div className="flex gap-4 sm:gap-6 overflow-hidden">
-                  {/* Depoimento 1 */}
-                  <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 min-w-[280px] sm:min-w-[320px] max-w-[280px] sm:max-w-[320px] flex-shrink-0">
-                    <p className="text-[#5B472B] text-sm sm:text-base mb-4 italic">
-                      "Que no mundo venha ter mais profissionais assim como você."
-                    </p>
-                    <h4 className="font-bold text-[#5B472B] text-center text-base sm:text-lg">Bruna</h4>
-                  </div>
-
-                  {/* Depoimento 2 */}
-                  <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 min-w-[280px] sm:min-w-[320px] max-w-[280px] sm:max-w-[320px] flex-shrink-0">
-                    <p className="text-[#5B472B] text-sm sm:text-base mb-4 italic">
-                      "Que no mundo venha ter mais profissionais assim como você."
-                    </p>
-                    <h4 className="font-bold text-[#5B472B] text-center text-base sm:text-lg">Luana</h4>
-                  </div>
-
-                  {/* Depoimento 3 */}
-                  <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 min-w-[280px] sm:min-w-[320px] max-w-[280px] sm:max-w-[320px] flex-shrink-0">
-                    <p className="text-[#5B472B] text-sm sm:text-base mb-4 italic">
-                      "Meu filho evoluiu muito com suas técnicas e abordagem personalizada."
-                    </p>
-                    <h4 className="font-bold text-[#5B472B] text-center text-base sm:text-lg">Michele</h4>
-                  </div>
-                </div>
-
-                {/* Botão Próximo */}
-                <button className="bg-[#4A7A98] rounded-full p-2 sm:p-3 hover:bg-[#3a6a88] transition-colors">
-                  <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-
-              {/* Indicadores */}
-              <div className="flex justify-center gap-2 mt-8">
-                <span className="w-8 h-2 bg-[#4A7A98] rounded-full"></span>
-                <span className="w-8 h-2 bg-[#4A7A98]/30 rounded-full"></span>
-              </div>
-            </div>
+            <TestimonialsCarousel />
           </div>
         </section>
 

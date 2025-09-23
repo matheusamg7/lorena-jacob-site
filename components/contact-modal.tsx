@@ -4,7 +4,6 @@ import { X } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect } from 'react'
-import { useRouter, usePathname } from 'next/navigation'
 
 interface ContactModalProps {
   isOpen: boolean
@@ -12,37 +11,22 @@ interface ContactModalProps {
 }
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
-  const router = useRouter()
-  const pathname = usePathname()
 
   useEffect(() => {
     if (isOpen) {
       const prev = document.body.style.overflow
       document.body.style.overflow = 'hidden'
-      
-      // Muda URL para /contato
-      if (pathname !== '/contato') {
-        window.history.pushState(null, '', '/contato')
-      }
-      
+
       const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose()
-      const onPopState = () => onClose()
-      
+
       window.addEventListener('keydown', onKey)
-      window.addEventListener('popstate', onPopState)
-      
+
       return () => {
         document.body.style.overflow = prev
         window.removeEventListener('keydown', onKey)
-        window.removeEventListener('popstate', onPopState)
-      }
-    } else {
-      // Volta para a URL anterior quando fechar
-      if (pathname === '/contato') {
-        router.back()
       }
     }
-  }, [isOpen, onClose, pathname, router])
+  }, [isOpen, onClose])
 
   if (!isOpen) return null
 
