@@ -96,7 +96,7 @@ export default function Page() {
                   quality={100}
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white via-10% via-white/85 via-20% to-transparent to-35%"></div>
                 <div className="relative p-6 sm:p-8 h-[350px] sm:h-[400px] flex flex-col justify-between">
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-[#27769B] text-center">
@@ -121,7 +121,7 @@ export default function Page() {
                   quality={100}
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white via-10% via-white/85 via-20% to-transparent to-35%"></div>
                 <div className="relative p-6 sm:p-8 h-[350px] sm:h-[400px] flex flex-col justify-between">
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-[#27769B] text-center">
@@ -146,7 +146,7 @@ export default function Page() {
                   quality={100}
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white via-10% via-white/85 via-20% to-transparent to-35%"></div>
                 <div className="relative p-6 sm:p-8 h-[350px] sm:h-[400px] flex flex-col justify-between">
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-[#27769B] text-center">
@@ -171,7 +171,7 @@ export default function Page() {
                   quality={100}
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white via-10% via-white/85 via-20% to-transparent to-35%"></div>
                 <div className="relative p-6 sm:p-8 h-[350px] sm:h-[400px] flex flex-col justify-between">
                   <div>
                     <h3 className="text-xl sm:text-2xl font-bold text-[#27769B] text-center">
@@ -476,15 +476,15 @@ export default function Page() {
                       <h2 className={`${nunito.className} text-5xl font-extrabold mb-6 text-[#FFFCB3] -mt-2`}>
                         REDES SOCIAIS
                       </h2>
-                      
+
                       <div className="flex items-center gap-3 mb-8 text-2xl">
                         {/* Instagram */}
                         <Link href="https://instagram.com/lorenajacob.st" target="_blank" className="text-white hover:text-[#FFFCB3] transition-colors">
-                          <svg 
-                            xmlns="http://www.w3.org/2000/svg" 
-                            width="28" 
-                            height="28" 
-                            viewBox="0 0 24 24" 
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="28"
+                            height="28"
+                            viewBox="0 0 24 24"
                             fill="currentColor"
                           >
                             <path d="M7.0301 0.00012207C2.22174 0.00012207 0 2.5218 0 7.0301V16.9699C0 21.7783 2.22174 24 7.0301 24H16.9699C21.7783 24 24 21.7783 24 16.9699V7.0301C24 2.22174 21.4779 0 16.9699 0L7.0301 0.00012207ZM19 4C19.5523 4 20 4.44772 20 5C20 5.55228 19.5523 6 19 6C18.4477 6 18 5.55228 18 5C18 4.44772 18.4477 4 19 4ZM12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6ZM12 8C10.9391 8 9.92172 8.42143 9.17157 9.17157C8.42143 9.92172 8 10.9391 8 12C8 13.0609 8.42143 14.0783 9.17157 14.8284C9.92172 15.5786 10.9391 16 12 16C13.0609 16 14.0783 15.5786 14.8284 14.8284C15.5786 14.0783 16 13.0609 16 12C16 10.9391 15.5786 9.92172 14.8284 9.17157C14.0783 8.42143 13.0609 8 12 8Z"/>
@@ -498,31 +498,45 @@ export default function Page() {
                         </Link>
                         <span className="font-bold">/@lorenajacob.st</span>
                       </div>
-                      
+
                       <Link href="https://instagram.com/lorenajacob.st" target="_blank">
-                        <Button className="bg-[#FFFCB3] hover:bg-[#f5f2a0] text-[#8B7659] font-bold px-8 py-5 rounded-full text-lg">
+                        <Button className="bg-[#8B7659] hover:bg-[#735d49] text-white font-bold px-8 py-4 rounded-full text-lg">
                           SIGA O MEU PERFIL
                         </Button>
                       </Link>
-                      
-                      {/* Decorative elements */}
-                      <div className="absolute bottom-6 left-6">
-                        <svg className="w-24 h-24 text-white/20" viewBox="0 0 100 100">
-                          <path d="M10 50 Q 30 10, 50 50 T 90 50" stroke="currentColor" strokeWidth="2" fill="none"/>
-                        </svg>
-                      </div>
                     </div>
                     
-                    {/* Mockup do Instagram à direita - desktop only */}
-                    <div className="relative flex items-center justify-center -ml-32">
-                      <div className="relative w-[240px] h-[480px]">
-                        <Image
-                          src="/assets/mockinsta.webp"
-                          alt="Instagram Lorena Jacob"
-                          fill
-                          className="object-contain"
-                          priority
-                        />
+                    {/* Instagram Card - desktop only */}
+                    <div className="relative flex items-center justify-center">
+                      <div className="bg-white rounded-2xl p-6 shadow-2xl min-w-[280px]">
+                        <div className="flex flex-col items-center">
+                          {/* Foto de perfil */}
+                          <div className="relative w-28 h-28 mb-4">
+                            <Image
+                              src="/foto_insta.jpg"
+                              alt="Lorena Jacob"
+                              fill
+                              className="object-cover rounded-full border-4 border-gray-200"
+                            />
+                          </div>
+                          {/* Username */}
+                          <div className="flex items-center gap-2 mb-2">
+                            <h3 className="text-xl font-bold text-gray-900">lorenajacob.st</h3>
+                            <svg className="w-5 h-5 text-[#3897F0]" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                          </div>
+                          <p className="text-xs text-gray-600 text-center px-4 mt-2">
+                            Especialista em Transtornos do Neurodesenvolvimento<br/>
+                            Suporte Terapêutico / Atendimento Personalizado
+                          </p>
+                          {/* Botão seguir */}
+                          <Link href="https://instagram.com/lorenajacob.st" target="_blank">
+                            <button className="mt-4 bg-[#0095F6] hover:bg-[#1877F2] text-white font-semibold px-12 py-2 rounded-lg transition-colors">
+                              Seguir
+                            </button>
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
