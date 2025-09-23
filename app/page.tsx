@@ -1,0 +1,604 @@
+import Image from "next/image"
+import Link from "next/link"
+import { Nunito, Poppins } from 'next/font/google'
+import SiteHeader from "@/components/site-header"
+import SiteFooter from "@/components/site-footer"
+import ContactDialog from "@/components/contact-dialog"
+import EbookCard from "@/components/ebook-card"
+import PostCard from "@/components/post-card"
+import ScrollIndicator from "@/components/scroll-indicator"
+import BannerCarousel from "@/components/banner-carousel"
+import { ebooks, posts } from "@/lib/data"
+import { Button } from "@/components/ui/button"
+
+const nunito = Nunito({ 
+  subsets: ['latin'],
+  weight: ['800'],
+  display: 'swap'
+})
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap'
+})
+
+export default function Page() {
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <SiteHeader />
+      <main className="flex-1">
+        {/* Hero */}
+        <section className="relative overflow-hidden min-h-[calc(100vh-70px)] -mt-8">
+          {/* Imagem de fundo */}
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/hero-banner.jpeg"
+              alt="Lorena Jacob - Terapeuta Infantil"
+              fill
+              className="object-cover object-center scale-110 animate-slow-zoom"
+              priority
+            />
+            {/* Gradiente de transição na parte inferior */}
+            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white via-white/70 to-transparent" />
+          </div>
+          
+          {/* Indicador de scroll */}
+          <ScrollIndicator />
+          
+          {/* Conteúdo */}
+          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 min-h-[calc(100vh-120px)] sm:min-h-[calc(100vh-70px)] flex items-center pt-4 sm:pt-8">
+            <div className="max-w-3xl py-4 sm:py-8 md:py-12 pb-20 sm:pb-24 md:pb-32 lg:pl-12 w-full text-center lg:text-left">
+              <h1 className={`${nunito.className} text-[1.75rem] sm:text-[2rem] md:text-[2.75rem] lg:text-[3.5rem] font-extrabold text-white leading-[1.05]`}>
+                Suporte Personalizado<br />
+                para o <span className="text-[#FFFCB3]">Desenvolvimento Infantil</span>
+              </h1>
+              
+              <p className="mt-4 sm:mt-6 text-base sm:text-[1.125rem] md:text-[1.25rem] text-white/90 max-w-2xl mx-auto lg:mx-0">
+                Terapia especializada em crianças com{" "}
+                <span className="text-[#FFFCB3] font-semibold">autismo</span>,{" "}
+                <span className="text-[#FFFCB3] font-semibold">TDAH</span>
+                {" "}e outras necessidades{" "}
+                <span className="text-[#FFFCB3] font-semibold">especiais</span>.
+              </p>
+              
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6">
+                <ContactDialog>
+                  <Button 
+                    className="bg-white hover:bg-gray-100 text-[#6FB1CE] font-bold px-6 sm:px-8 py-3 h-auto text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-200 rounded-full cursor-pointer w-full sm:w-auto"
+                  >
+                    Agende uma avaliação
+                  </Button>
+                </ContactDialog>
+                
+                <Link 
+                  href="/about"
+                  className="text-white font-medium text-sm sm:text-base hover:text-[#FFFCB3] underline underline-offset-4 decoration-1 transition-colors duration-200"
+                >
+                  Conheça a Lorena Jacob
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Seção de Serviços */}
+        <section className="py-2 sm:py-3 lg:py-4 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-7xl mx-auto">
+              {/* Card 1 - Acompanhamento Personalizado */}
+              <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <Image
+                  src="/Acompanhamento-card.jpg"
+                  alt="Acompanhamento Personalizado"
+                  fill
+                  className="object-cover object-center"
+                  quality={100}
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
+                <div className="relative p-6 sm:p-8 h-[350px] sm:h-[400px] flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#27769B] text-center">
+                      Acompanhamento<br />Personalizado
+                    </h3>
+                  </div>
+                  <Button 
+                    className="w-full bg-[#27769B] hover:bg-[#1e5a79] text-white font-bold py-2.5 sm:py-3 text-sm sm:text-base rounded-lg shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                  >
+                    SAIBA MAIS
+                  </Button>
+                </div>
+              </div>
+
+              {/* Card 2 - Treinamento para Pais & Educadores */}
+              <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <Image
+                  src="/treinamento_para_pais.webp"
+                  alt="Treinamento para Pais & Educadores"
+                  fill
+                  className="object-cover object-center"
+                  quality={100}
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
+                <div className="relative p-6 sm:p-8 h-[350px] sm:h-[400px] flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#27769B] text-center">
+                      Treinamento para<br />Pais & Educadores
+                    </h3>
+                  </div>
+                  <Button 
+                    className="w-full bg-[#27769B] hover:bg-[#1e5a79] text-white font-bold py-2.5 sm:py-3 text-sm sm:text-base rounded-lg shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                  >
+                    SAIBA MAIS
+                  </Button>
+                </div>
+              </div>
+
+              {/* Card 3 - Palestras & Consultorias */}
+              <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <Image
+                  src="/palestras.webp"
+                  alt="Palestras & Consultorias"
+                  fill
+                  className="object-cover object-center scale-110"
+                  quality={100}
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
+                <div className="relative p-6 sm:p-8 h-[350px] sm:h-[400px] flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#27769B] text-center">
+                      Palestras &<br />Consultorias
+                    </h3>
+                  </div>
+                  <Button 
+                    className="w-full bg-[#27769B] hover:bg-[#1e5a79] text-white font-bold py-2.5 sm:py-3 text-sm sm:text-base rounded-lg shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                  >
+                    SAIBA MAIS
+                  </Button>
+                </div>
+              </div>
+
+              {/* Card 4 - Ebooks */}
+              <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+                <Image
+                  src="/ebook.webp"
+                  alt="Ebooks"
+                  fill
+                  className="object-cover object-center"
+                  quality={100}
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-white from-0% via-white/90 via-30% to-transparent to-70%"></div>
+                <div className="relative p-6 sm:p-8 h-[350px] sm:h-[400px] flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#27769B] text-center">
+                      Ebooks
+                    </h3>
+                  </div>
+                  <Button
+                    className="w-full bg-[#27769B] hover:bg-[#1e5a79] text-white font-bold py-2.5 sm:py-3 text-sm sm:text-base rounded-lg shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                  >
+                    SAIBA MAIS
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Banner Carousel */}
+        <BannerCarousel />
+
+        {/* Sobre Mim */}
+        <section className="py-4 sm:py-6 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="relative">
+                {/* Título sobre a imagem - apenas desktop */}
+                <div className="absolute left-8 lg:left-16 top-12 z-30 hidden lg:block">
+                  <h2 className={`${poppins.className} text-3xl sm:text-4xl md:text-5xl font-bold text-white`}>
+                    Sobre Mim
+                  </h2>
+                </div>
+
+                {/* Foto da Lorena - posicionada mais abaixo */}
+                <div className="absolute left-4 lg:left-8 top-1/2 -translate-y-[40%] z-20 hidden lg:block">
+                  <div className="relative w-[350px] h-[400px]">
+                    <Image
+                      src="/assets/sobre-lorena.png"
+                      alt="Lorena Jacob"
+                      fill
+                      className="object-contain drop-shadow-2xl"
+                      priority
+                    />
+                  </div>
+                </div>
+                
+                {/* Card azul claro */}
+                <div className="bg-[#A8D5E5] rounded-[2rem] sm:rounded-[3rem] overflow-hidden relative z-10">
+                  {/* Mobile Layout */}
+                  <div className="lg:hidden">
+                    {/* Título mobile */}
+                    <div className="text-center pt-6 pb-2">
+                      <h2 className={`${poppins.className} text-3xl sm:text-4xl font-bold text-white`}>
+                        Sobre Mim
+                      </h2>
+                    </div>
+                    {/* Foto no topo - mobile */}
+                    <div className="px-4 pt-6 pb-4">
+                      <div className="relative w-full h-[280px] sm:h-[320px]">
+                        <Image
+                          src="/assets/sobre-lorena.png"
+                          alt="Lorena Jacob"
+                          fill
+                          className="object-contain drop-shadow-2xl"
+                          priority
+                        />
+                      </div>
+                    </div>
+                    
+                    {/* Cards de texto - mobile */}
+                    <div className="p-4 space-y-3">
+                      <div className="bg-white rounded-xl p-4 shadow-md">
+                        <p className={`${poppins.className} text-sm text-[#5B472B] leading-relaxed font-normal`}>
+                          Sou <span className="font-semibold text-[#27769B]">Lorena Jacob, Terapeuta Infantil</span> em formação como <span className="font-semibold text-[#27769B]">Terapeuta Ocupacional</span> e mãe de duas crianças autistas. Com mais de <span className="font-semibold text-[#27769B]">10 anos de experiência</span>, dedico minha prática ao atendimento de crianças com <span className="font-semibold text-[#27769B]">TEA, TDAH, TOD, seletividade alimentar, deficiência intelectual</span> e outras condições do neurodesenvolvimento.
+                        </p>
+                      </div>
+                      
+                      <div className="bg-white rounded-xl p-4 shadow-md">
+                        <p className={`${poppins.className} text-sm text-[#5B472B] leading-relaxed font-normal mb-3`}>
+                          Atendo presencialmente em <span className="font-semibold text-[#27769B]">Londres</span> e também <span className="font-semibold text-[#27769B]">online</span>, oferecendo suporte terapêutico individualizado para crianças e orientação às famílias.
+                        </p>
+                        <p className={`${poppins.className} text-sm text-[#5B472B] leading-relaxed font-normal`}>
+                          Minha abordagem é lúdica, prática e personalizada, promovendo avanços em <span className="font-semibold text-[#27769B]">comunicação, interação social, autonomia, habilidades cognitivas e motoras</span>, além de <span className="font-semibold text-[#27769B]">integração e regulação sensorial</span>.
+                        </p>
+                      </div>
+                      
+                      <div className="bg-white rounded-xl p-4 shadow-md">
+                        <p className={`${poppins.className} text-sm text-[#5B472B] leading-relaxed font-normal`}>
+                          Como mãe e profissional, compreendo os desafios das famílias atípicas e ofereço um olhar sensível, assertivo e comprometido com o desenvolvimento e bem-estar de cada criança, <span className="font-semibold text-[#27769B]">sempre em parceria com a família</span>.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Desktop Layout */}
+                  <div className="hidden lg:flex items-start py-10">
+                    {/* Espaçador para a foto no desktop */}
+                    <div className="lg:w-[360px]"></div>
+                    
+                    {/* Texto - desktop */}
+                    <div className="lg:flex-1 p-6 lg:pr-12">
+                      <div className="space-y-3 max-w-3xl">
+                        <div className="bg-white rounded-xl p-5 shadow-md">
+                          <p className={`${poppins.className} text-base text-[#5B472B] leading-relaxed`}>
+                            Sou <span className="font-semibold text-[#27769B]">Lorena Jacob, Terapeuta Infantil</span> em formação como <span className="font-semibold text-[#27769B]">Terapeuta Ocupacional</span> e mãe de duas crianças autistas. Com mais de <span className="font-semibold text-[#27769B]">10 anos de experiência</span>, dedico minha prática ao atendimento de crianças com <span className="font-semibold text-[#27769B]">TEA, TDAH, TOD, seletividade alimentar, deficiência intelectual</span> e outras condições do neurodesenvolvimento.
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-5 shadow-md">
+                          <p className={`${poppins.className} text-base text-[#5B472B] leading-relaxed mb-3`}>
+                            Atendo presencialmente em <span className="font-semibold text-[#27769B]">Londres</span> e também <span className="font-semibold text-[#27769B]">online</span>, oferecendo suporte terapêutico individualizado para crianças e orientação às famílias.
+                          </p>
+                          <p className={`${poppins.className} text-base text-[#5B472B] leading-relaxed`}>
+                            Minha abordagem é lúdica, prática e personalizada, promovendo avanços em <span className="font-semibold text-[#27769B]">comunicação, interação social, autonomia, habilidades cognitivas e motoras</span>, além de <span className="font-semibold text-[#27769B]">integração e regulação sensorial</span>.
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-5 shadow-md">
+                          <p className={`${poppins.className} text-base text-[#5B472B] leading-relaxed`}>
+                            Como mãe e profissional, compreendo os desafios das famílias atípicas e ofereço um olhar sensível, assertivo e comprometido com o desenvolvimento e bem-estar de cada criança, <span className="font-semibold text-[#27769B]">sempre em parceria com a família</span>.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Blog Preview com Cards Customizados */}
+        <section className="relative pt-12 sm:pt-16 pb-16 sm:pb-20 mt-12 sm:mt-16 -mb-6 sm:-mb-8 z-10">
+          <div className="absolute inset-0 bg-gray-50 rounded-[2rem] sm:rounded-[3rem] shadow-[0_-10px_30px_rgba(0,0,0,0.1)]"></div>
+          <div className="relative z-10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              {/* Título */}
+              <div className="text-center mb-8 sm:mb-12 px-4">
+                <h2 className={`${nunito.className} text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#27769B] leading-tight`}>
+                  Visite <span className="text-[#27769B]">nosso Blog</span>
+                </h2>
+              </div>
+
+              {/* Cards de Artigos com navegação */}
+              <div className="relative">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 max-w-4xl mx-auto">
+                  {/* Card 1 */}
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col h-full">
+                    <div className="relative h-48">
+                      <Image
+                        src="/assets/blog-artigos/autismo-na-vida-adulta-1749044146435.jpg"
+                        alt="Autismo na Vida Adulta"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h3 className="text-xl font-bold text-[#6FB1CE] mb-3">
+                        Autismo na Vida Adulta
+                      </h3>
+                      <p className="text-[#5B472B] text-sm mb-4 flex-grow line-clamp-2">
+                        Nesse artigo, vamos falar sobre como o autismo pode aparecer na vida adulta, os problemas encarados e a importância de acolher e estar bem informado durante esse processo.
+                      </p>
+                      <Link href="/blog/autismo-na-vida-adulta">
+                        <Button 
+                          className="w-full bg-[#1e5a79] hover:bg-[#27769B] text-white font-bold py-3 rounded-lg cursor-pointer mb-4"
+                        >
+                          SAIBA MAIS
+                        </Button>
+                      </Link>
+                      <div className="flex items-center gap-4 text-xs text-[#5B472B]">
+                        <span>176 visualizações</span>
+                        <span>•</span>
+                        <span>0 comentários</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card 2 */}
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col h-full">
+                    <div className="relative h-48">
+                      <Image
+                        src="/assets/blog-artigos/como-identificar-o-autismo-1746639761424.jpg"
+                        alt="Como Identificar o Autismo"
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <h3 className="text-xl font-bold text-[#6FB1CE] mb-3">
+                        Como Identificar o Autismo
+                      </h3>
+                      <p className="text-[#5B472B] text-sm mb-4 flex-grow line-clamp-2">
+                        Descobertas e aprendizados sobre os sinais e características do autismo, ajudando pais e profissionais a identificarem precocemente.
+                      </p>
+                      <Link href="/blog/como-identificar-o-autismo">
+                        <Button 
+                          className="w-full bg-[#1e5a79] hover:bg-[#27769B] text-white font-bold py-3 rounded-lg cursor-pointer mb-4"
+                        >
+                          SAIBA MAIS
+                        </Button>
+                      </Link>
+                      <div className="flex items-center gap-4 text-xs text-[#5B472B]">
+                        <span>542 visualizações</span>
+                        <span>•</span>
+                        <span>0 comentários</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Setas de navegação */}
+                <button className="hidden sm:block absolute -left-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all cursor-pointer">
+                  <svg className="w-5 sm:w-6 h-5 sm:h-6 text-[#27769B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button className="hidden sm:block absolute -right-4 top-1/2 -translate-y-1/2 bg-white rounded-full p-2 sm:p-3 shadow-lg hover:shadow-xl transition-all cursor-pointer">
+                  <svg className="w-5 sm:w-6 h-5 sm:h-6 text-[#27769B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Botão CTA */}
+              <div className="text-center">
+                <Link href="/blog">
+                  <Button
+                    className="bg-[#FFFCB3] hover:bg-[#f5f2a0] text-[#27769B] font-bold px-8 sm:px-12 md:px-16 py-4 sm:py-5 rounded-full text-base sm:text-lg md:text-xl cursor-pointer"
+                  >
+                    ACESSE O BLOG
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
+
+        {/* Seção Redes Sociais */}
+        <section className="relative py-8 sm:py-12 lg:py-16 bg-white -mt-2 sm:-mt-4">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <div className="relative bg-[#8B7659] rounded-[2rem] sm:rounded-[3rem] overflow-hidden h-[350px] sm:h-[400px] lg:h-[450px]">
+                {/* Imagem de fundo com overlay */}
+                <div className="absolute inset-0">
+                  <Image
+                    src="/assets/lorena-redes.jpg"
+                    alt="Lorena Jacob"
+                    fill
+                    className="object-cover object-center opacity-40 blur-[2px]"
+                  />
+                </div>
+                
+                {/* Conteúdo */}
+                <div className="relative z-10 flex items-center justify-center p-6 sm:p-8 lg:p-12 h-full">
+                  {/* Mobile Layout - sem mockup */}
+                  <div className="lg:hidden text-white text-center">
+                    <h2 className={`${nunito.className} text-3xl sm:text-4xl font-extrabold leading-tight`}>
+                      SIGA-ME NAS
+                    </h2>
+                    <h2 className={`${nunito.className} text-3xl sm:text-4xl font-extrabold mb-6 text-[#FFFCB3] -mt-1`}>
+                      REDES SOCIAIS
+                    </h2>
+                    
+                    <div className="flex items-center justify-center gap-3 mb-6 text-lg">
+                      {/* Instagram */}
+                      <Link href="https://instagram.com/lorenajacob.st" target="_blank" className="text-white hover:text-[#FFFCB3] transition-colors">
+                        <svg 
+                          xmlns="http://www.w3.org/2000/svg" 
+                          width="24" 
+                          height="24" 
+                          viewBox="0 0 24 24" 
+                          fill="currentColor"
+                        >
+                          <path d="M7.0301 0.00012207C2.22174 0.00012207 0 2.5218 0 7.0301V16.9699C0 21.7783 2.22174 24 7.0301 24H16.9699C21.7783 24 24 21.7783 24 16.9699V7.0301C24 2.22174 21.4779 0 16.9699 0L7.0301 0.00012207ZM19 4C19.5523 4 20 4.44772 20 5C20 5.55228 19.5523 6 19 6C18.4477 6 18 5.55228 18 5C18 4.44772 18.4477 4 19 4ZM12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6ZM12 8C10.9391 8 9.92172 8.42143 9.17157 9.17157C8.42143 9.92172 8 10.9391 8 12C8 13.0609 8.42143 14.0783 9.17157 14.8284C9.92172 15.5786 10.9391 16 12 16C13.0609 16 14.0783 15.5786 14.8284 14.8284C15.5786 14.0783 16 13.0609 16 12C16 10.9391 15.5786 9.92172 14.8284 9.17157C14.0783 8.42143 13.0609 8 12 8Z"/>
+                        </svg>
+                      </Link>
+                      {/* Facebook */}
+                      <Link href="https://facebook.com/lorenajacob.st" target="_blank" className="text-white hover:text-[#FFFCB3] transition-colors">
+                        <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                      </Link>
+                      <span className="font-bold">/@lorenajacob.st</span>
+                    </div>
+                    
+                    <Link href="https://instagram.com/lorenajacob.st" target="_blank">
+                      <Button className="bg-[#FFFCB3] hover:bg-[#f5f2a0] text-[#8B7659] font-bold px-6 py-4 rounded-full text-base">
+                        SIGA O MEU PERFIL
+                      </Button>
+                    </Link>
+                  </div>
+                  
+                  {/* Desktop Layout - com mockup */}
+                  <div className="hidden lg:flex items-center justify-center gap-8 w-full">
+                    {/* Texto à esquerda */}
+                    <div className="flex-1 text-white lg:pl-12">
+                      <h2 className={`${nunito.className} text-5xl font-extrabold leading-tight`}>
+                        SIGA-ME NAS
+                      </h2>
+                      <h2 className={`${nunito.className} text-5xl font-extrabold mb-6 text-[#FFFCB3] -mt-2`}>
+                        REDES SOCIAIS
+                      </h2>
+                      
+                      <div className="flex items-center gap-3 mb-8 text-2xl">
+                        {/* Instagram */}
+                        <Link href="https://instagram.com/lorenajacob.st" target="_blank" className="text-white hover:text-[#FFFCB3] transition-colors">
+                          <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            width="28" 
+                            height="28" 
+                            viewBox="0 0 24 24" 
+                            fill="currentColor"
+                          >
+                            <path d="M7.0301 0.00012207C2.22174 0.00012207 0 2.5218 0 7.0301V16.9699C0 21.7783 2.22174 24 7.0301 24H16.9699C21.7783 24 24 21.7783 24 16.9699V7.0301C24 2.22174 21.4779 0 16.9699 0L7.0301 0.00012207ZM19 4C19.5523 4 20 4.44772 20 5C20 5.55228 19.5523 6 19 6C18.4477 6 18 5.55228 18 5C18 4.44772 18.4477 4 19 4ZM12 6C15.3137 6 18 8.68629 18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6ZM12 8C10.9391 8 9.92172 8.42143 9.17157 9.17157C8.42143 9.92172 8 10.9391 8 12C8 13.0609 8.42143 14.0783 9.17157 14.8284C9.92172 15.5786 10.9391 16 12 16C13.0609 16 14.0783 15.5786 14.8284 14.8284C15.5786 14.0783 16 13.0609 16 12C16 10.9391 15.5786 9.92172 14.8284 9.17157C14.0783 8.42143 13.0609 8 12 8Z"/>
+                          </svg>
+                        </Link>
+                        {/* Facebook */}
+                        <Link href="https://facebook.com/lorenajacob.st" target="_blank" className="text-white hover:text-[#FFFCB3] transition-colors">
+                          <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                          </svg>
+                        </Link>
+                        <span className="font-bold">/@lorenajacob.st</span>
+                      </div>
+                      
+                      <Link href="https://instagram.com/lorenajacob.st" target="_blank">
+                        <Button className="bg-[#FFFCB3] hover:bg-[#f5f2a0] text-[#8B7659] font-bold px-8 py-5 rounded-full text-lg">
+                          SIGA O MEU PERFIL
+                        </Button>
+                      </Link>
+                      
+                      {/* Decorative elements */}
+                      <div className="absolute bottom-6 left-6">
+                        <svg className="w-24 h-24 text-white/20" viewBox="0 0 100 100">
+                          <path d="M10 50 Q 30 10, 50 50 T 90 50" stroke="currentColor" strokeWidth="2" fill="none"/>
+                        </svg>
+                      </div>
+                    </div>
+                    
+                    {/* Mockup do Instagram à direita - desktop only */}
+                    <div className="relative flex items-center justify-center -ml-32">
+                      <div className="relative w-[240px] h-[480px]">
+                        <Image
+                          src="/assets/mockinsta.webp"
+                          alt="Instagram Lorena Jacob"
+                          fill
+                          className="object-contain"
+                          priority
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Seção de Depoimentos */}
+        <section className="py-8 sm:py-10 lg:py-12" style={{ backgroundColor: '#FAFFE7' }}>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className={`${nunito.className} text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-[#4A7A98]`}>
+                DEPOIMENTOS
+              </h2>
+            </div>
+
+            {/* Carousel de Depoimentos */}
+            <div className="relative max-w-6xl mx-auto">
+              <div className="flex items-center justify-center gap-2 sm:gap-4">
+                {/* Botão Anterior */}
+                <button className="bg-[#4A7A98] rounded-full p-2 sm:p-3 hover:bg-[#3a6a88] transition-colors">
+                  <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+
+                {/* Cards de Depoimentos */}
+                <div className="flex gap-4 sm:gap-6 overflow-hidden">
+                  {/* Depoimento 1 */}
+                  <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 min-w-[280px] sm:min-w-[320px] max-w-[280px] sm:max-w-[320px] flex-shrink-0">
+                    <p className="text-[#5B472B] text-sm sm:text-base mb-4 italic">
+                      "Que no mundo venha ter mais profissionais assim como você."
+                    </p>
+                    <h4 className="font-bold text-[#5B472B] text-center text-base sm:text-lg">Bruna</h4>
+                  </div>
+
+                  {/* Depoimento 2 */}
+                  <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 min-w-[280px] sm:min-w-[320px] max-w-[280px] sm:max-w-[320px] flex-shrink-0">
+                    <p className="text-[#5B472B] text-sm sm:text-base mb-4 italic">
+                      "Que no mundo venha ter mais profissionais assim como você."
+                    </p>
+                    <h4 className="font-bold text-[#5B472B] text-center text-base sm:text-lg">Luana</h4>
+                  </div>
+
+                  {/* Depoimento 3 */}
+                  <div className="bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 min-w-[280px] sm:min-w-[320px] max-w-[280px] sm:max-w-[320px] flex-shrink-0">
+                    <p className="text-[#5B472B] text-sm sm:text-base mb-4 italic">
+                      "Meu filho evoluiu muito com suas técnicas e abordagem personalizada."
+                    </p>
+                    <h4 className="font-bold text-[#5B472B] text-center text-base sm:text-lg">Michele</h4>
+                  </div>
+                </div>
+
+                {/* Botão Próximo */}
+                <button className="bg-[#4A7A98] rounded-full p-2 sm:p-3 hover:bg-[#3a6a88] transition-colors">
+                  <svg className="w-5 sm:w-6 h-5 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Indicadores */}
+              <div className="flex justify-center gap-2 mt-8">
+                <span className="w-8 h-2 bg-[#4A7A98] rounded-full"></span>
+                <span className="w-8 h-2 bg-[#4A7A98]/30 rounded-full"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+      <div className="bg-[#FAFFE7]">
+        <SiteFooter />
+      </div>
+    </div>
+  )
+}
